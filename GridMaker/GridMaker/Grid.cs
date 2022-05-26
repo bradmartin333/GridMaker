@@ -7,7 +7,7 @@ namespace GridMaker
     public class Grid
     {
         [XmlElement("Name")]
-        public string Name { get; set; } = "Grid";
+        public string Name { get; set; } = "Name";
         [XmlElement("StepA")]
         public Step StepA { get; set; } = new Step();
         [XmlElement("StepB")]

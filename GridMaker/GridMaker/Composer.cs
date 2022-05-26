@@ -33,9 +33,9 @@ namespace GridMaker
             Grid = new Grid()
             {
                 Name = TxtName.Text,
-                StepA = new Step(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), new PointF((int)NumStepAPitchX.Value, (int)NumStepAPitchY.Value)),
-                StepB = new Step(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), new PointF((int)NumStepBPitchX.Value, (int)NumStepBPitchY.Value)),
-                StepC = new Step(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), new PointF((int)NumStepCPitchX.Value, (int)NumStepCPitchY.Value)),
+                StepA = new Step(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), new PointF((float)NumStepAPitchX.Value, (float)NumStepAPitchY.Value)),
+                StepB = new Step(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), new PointF((float)NumStepBPitchX.Value, (float)NumStepBPitchY.Value)),
+                StepC = new Step(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), new PointF((float)NumStepCPitchX.Value, (float)NumStepCPitchY.Value)),
             };
             bool validA = MakeSkippedIndices(Grid.StepA, RTBA.Text);
             bool validB = MakeSkippedIndices(Grid.StepB, RTBB.Text);
@@ -154,6 +154,11 @@ namespace GridMaker
                              "Enter skipped indices within the array as a zero-indexed CSV and a new line between each entry.\n" +
                              "\tEx: 0, 1";
             MessageBox.Show(helpStr, "Grid Maker Help");
+        }
+
+        private void BtnDone_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GridMaker
+namespace SampleUI
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace GridMaker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Composer());
+            Application.Run(new Form1());
         }
     }
 }
