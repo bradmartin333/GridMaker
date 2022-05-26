@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GridMaker
 {
-    public partial class Form1 : Form
+    public partial class Composer : Form
     {
-        public Form1()
+        public Composer()
         {
             InitializeComponent();
         }
