@@ -144,7 +144,11 @@ namespace GridMaker
 
         private void HelpToolStripButton_Click(object sender, EventArgs e)
         {
-
+            string helpStr = "Step A should have the largest pitches and Step C should have the smallest pitches.\n" +
+                             "The Steps are nested to allow for greater customization.\n" +
+                             "Enter skipped indices within the array as a zero-indexed CSV and a new line between each entry.\n" +
+                             "\tEx: 0, 1";
+            MessageBox.Show(helpStr, "Grid Maker Help");
         }
     }
 }
