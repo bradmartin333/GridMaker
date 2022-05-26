@@ -55,6 +55,7 @@
     <Compile Include="Composer.Designer.cs">
       <DependentUpon>Composer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Generator.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

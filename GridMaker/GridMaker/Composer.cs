@@ -7,11 +7,16 @@ using System.Xml.Serialization;
 
 namespace GridMaker
 {
-    internal partial class Composer : Form
+    public partial class Composer : Form
     {
         private readonly string GridPath = $"{Path.GetTempPath()}GridMaker.xml";
-        private Grid Grid = new Grid();
+        public static Grid Grid = new Grid();
 
+        /// <summary>
+        /// Open a Grid Maker Composer window
+        /// and load the last used Grid from the
+        /// temp directory
+        /// </summary>
         public Composer()
         {
             InitializeComponent();
