@@ -15,14 +15,15 @@ namespace GridMaker
         public Composer()
         {
             InitializeComponent();
-            if (File.Exists(GridPath))
-            {
-                LoadGrid();
-                RepopulateUI();
-            }
+            if (File.Exists(GridPath)) LoadGrid();
         }
 
         private void BtnValidateAndSave_Click(object sender, EventArgs e)
+        {
+            SaveGrid();
+        }
+
+        private bool ValidateGrid()
         {
             Grid = new Grid()
             {
@@ -34,11 +35,7 @@ namespace GridMaker
             bool validA = MakeSkippedIndices(Grid.StepA, RTBA.Text);
             bool validB = MakeSkippedIndices(Grid.StepB, RTBB.Text);
             bool validC = MakeSkippedIndices(Grid.StepC, RTBC.Text);
-            if (validA && validB && validC)
-            {
-                RepopulateUI();
-                SaveGrid();
-            }
+            return validA && validB && validC;
         }
 
         private void RepopulateUI()
@@ -56,15 +53,16 @@ namespace GridMaker
             NumStepBPitchY.Value = (decimal)Grid.StepB.Pitch.Y;
             NumStepCPitchX.Value = (decimal)Grid.StepC.Pitch.X;
             NumStepCPitchY.Value = (decimal)Grid.StepC.Pitch.Y;
-            RTBA.Text = "";
-            foreach (Point point in Grid.StepA.SkippedIndices)
-                RTBA.Text += $"{point.X}, {point.Y}\n";
-            RTBB.Text = "";
-            foreach (Point point in Grid.StepB.SkippedIndices)
-                RTBB.Text += $"{point.X}, {point.Y}\n";
-            RTBC.Text = "";
-            foreach (Point point in Grid.StepC.SkippedIndices)
-                RTBC.Text += $"{point.X}, {point.Y}\n";
+            PopulateRTB(Grid.StepA, RTBA);
+            PopulateRTB(Grid.StepB, RTBB);
+            PopulateRTB(Grid.StepC, RTBC);
+        }
+
+        private void PopulateRTB(Step step, RichTextBox rtb)
+        {
+            rtb.Text = "";
+            foreach (Point point in step.SkippedIndices)
+                rtb.Text += $"{point.X}, {point.Y}\n";
         }
 
         private bool MakeSkippedIndices(Step step, string text)
@@ -87,11 +85,15 @@ namespace GridMaker
 
         private void SaveGrid(string path = null)
         {
-            using (StreamWriter stream = new StreamWriter(string.IsNullOrEmpty(path) ? GridPath : path))
+            if (ValidateGrid())
             {
-                XmlSerializer x = new XmlSerializer(typeof(Grid));
-                x.Serialize(stream, Grid);
-            }
+                using (StreamWriter stream = new StreamWriter(string.IsNullOrEmpty(path) ? GridPath : path))
+                {
+                    XmlSerializer x = new XmlSerializer(typeof(Grid));
+                    x.Serialize(stream, Grid);
+                }
+                RepopulateUI();
+            } 
         }
 
         private void LoadGrid(string path = null)
@@ -103,26 +105,44 @@ namespace GridMaker
                     XmlSerializer x = new XmlSerializer(typeof(Grid));
                     Grid = (Grid)x.Deserialize(stream);
                 }
+                RepopulateUI();
             }
             catch (Exception) { }
         }
 
-        private void newToolStripButton_Click(object sender, EventArgs e)
+        private void NewToolStripButton_Click(object sender, EventArgs e)
         {
-
+            Grid = new Grid();
+            RepopulateUI();
         }
 
-        private void openToolStripButton_Click(object sender, EventArgs e)
+        private void OpenToolStripButton_Click(object sender, EventArgs e)
         {
-
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.RestoreDirectory = true;
+                ofd.Title = "Open Grid Maker";
+                ofd.Filter = "XML file(*.xml)| *.xml";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                    LoadGrid(ofd.FileName);
+            }
         }
 
-        private void saveToolStripButton_Click(object sender, EventArgs e)
+        private void SaveToolStripButton_Click(object sender, EventArgs e)
         {
-
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "XML file(*.xml)| *.xml";
+                sfd.Title = "Save Grid Maker";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName)) File.Delete(sfd.FileName);
+                    SaveGrid(sfd.FileName);
+                }
+            }
         }
 
-        private void helpToolStripButton_Click(object sender, EventArgs e)
+        private void HelpToolStripButton_Click(object sender, EventArgs e)
         {
 
         }
