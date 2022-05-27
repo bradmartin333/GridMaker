@@ -181,6 +181,7 @@ namespace GridMaker
 
         private void BtnDone_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             Dispose();
         }
     }
