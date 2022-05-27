@@ -14,6 +14,7 @@
     <RepositoryUrl>https://github.com/bradmartin333/GridMaker</RepositoryUrl>
     <PackageTags>CNC; grid; automation</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

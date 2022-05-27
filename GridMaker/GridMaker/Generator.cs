@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace GridMaker
 {
+    /// <summary>
+    /// Class for turning a Grid into a list of Nodes
+    /// </summary>
     public class Generator
     {
+        private enum WarningState { None, Active, Ignore, }
+        private readonly double CauseWarning = 1e6;
         private readonly PointF SW, SE, Origin;
         private PointF CenterOfRotation;
 
@@ -15,10 +21,25 @@ namespace GridMaker
         /// </summary>
         public struct Node
         {
+            /// <summary>
+            /// The raw location of the node
+            /// </summary>
             public PointF Location;
+            /// <summary>
+            /// The A index of the node
+            /// </summary>
             public Point A;
+            /// <summary>
+            /// The B index of the node
+            /// </summary>
             public Point B;
+            /// <summary>
+            /// The C index of the node
+            /// </summary>
             public Point C;
+            /// <summary>
+            /// Whether or not this node should cause a callback
+            /// </summary>
             public bool Callback;
             /// <summary>
             /// Get TSV string representation of the Node
@@ -90,11 +111,12 @@ namespace GridMaker
         /// </returns>
         public List<Node> Generate()
         {
+            WarningState warning = WarningState.None;
             List<Node> points = new List<Node>();
             for (int i = 0; i < Composer.Grid.StepA.Array.Width; i++)
-            {
                 for (int j = 0; j < Composer.Grid.StepA.Array.Height; j++)
                 {
+                    if (warning == WarningState.Active) return new List<Node>();
                     Point point = new Point(i, j);
                     if (Composer.Grid.StepA.SkippedIndices.Contains(point)) continue;
                     points.Add(new Node()
@@ -107,16 +129,15 @@ namespace GridMaker
                         C = Point.Empty,
                         Callback = Composer.Grid.StepA.Callback,
                     });
+                    if (warning != WarningState.Ignore) warning = CheckWarning(points.Count);
                 }
-            }
 
             Node[] basePoints = (Node[])points.ToArray().Clone();
             for (int k = 0; k < basePoints.Count(); k++)
-            {
                 for (int i = 0; i < Composer.Grid.StepB.Array.Width; i++)
-                {
                     for (int j = 0; j < Composer.Grid.StepB.Array.Height; j++)
                     {
+                        if (warning == WarningState.Active) return new List<Node>();
                         Point point = new Point(i, j);
                         if (point == Point.Empty) continue;
                         if (Composer.Grid.StepB.SkippedIndices.Contains(point)) continue;
@@ -130,17 +151,15 @@ namespace GridMaker
                             C = Point.Empty,
                             Callback = Composer.Grid.StepB.Callback,
                         });
+                        if (warning != WarningState.Ignore) warning = CheckWarning(points.Count);
                     }
-                }
-            }
 
             basePoints = (Node[])points.ToArray().Clone();
             for (int k = 0; k < basePoints.Count(); k++)
-            {
                 for (int i = 0; i < Composer.Grid.StepC.Array.Width; i++)
-                {
                     for (int j = 0; j < Composer.Grid.StepC.Array.Height; j++)
                     {
+                        if (warning == WarningState.Active) return new List<Node>();
                         Point point = new Point(i, j);
                         if (point == Point.Empty) continue;
                         if (Composer.Grid.StepC.SkippedIndices.Contains(point)) continue;
@@ -154,11 +173,22 @@ namespace GridMaker
                             C = point,
                             Callback = Composer.Grid.StepC.Callback,
                         });
+                        if (warning != WarningState.Ignore) warning = CheckWarning(points.Count);
                     }
-                }
-            }
 
             return Serpentize(points);
+        }
+
+        private WarningState CheckWarning(int count)
+        {
+            if (count > CauseWarning)
+            {
+                DialogResult result = MessageBox.Show(
+                    $"There are more than {CauseWarning:#E+0} points, do you want to continue at risk of causing a program stall?", 
+                    "Grid Maker", MessageBoxButtons.YesNo);
+                return result == DialogResult.No ? WarningState.Active : WarningState.Ignore;
+            }
+            return WarningState.None;
         }
 
         private List<Node> Serpentize(List<Node> points)

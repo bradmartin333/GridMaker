@@ -7,9 +7,15 @@ using System.Xml.Serialization;
 
 namespace GridMaker
 {
+    /// <summary>
+    /// UI for creating/loading/saving a Grid
+    /// </summary>
     public partial class Composer : Form
     {
         private readonly string GridPath = $"{Path.GetTempPath()}GridMaker.xml";
+        /// <summary>
+        /// The Grid currently active in GridMaker
+        /// </summary>
         public static Grid Grid = new Grid();
 
         /// <summary>
@@ -93,7 +99,7 @@ namespace GridMaker
                 {
                     bool validX = int.TryParse(cols[0].Replace(" ", ""), out int x);
                     bool validY = int.TryParse(cols[1].Replace(" ", ""), out int y);
-                    if (validX && validY) points.Add(new Point(x, y));
+                    if (validX && validY) points.Add(new Point(x - 1, y - 1));
                 }
             }
             step.SkippedIndices = points;
@@ -113,7 +119,11 @@ namespace GridMaker
             } 
         }
 
-        private void LoadGrid(string path = null)
+        /// <summary>
+        /// Initialize GridMaker with a saved .XML Grid
+        /// </summary>
+        /// <param name="path"></param>
+        public void LoadGrid(string path = null)
         {
             try
             {
@@ -163,7 +173,7 @@ namespace GridMaker
         {
             string helpStr = "Step A should have the largest pitches and Step C should have the smallest pitches.\n" +
                              "The Steps are nested to allow for greater customization.\n" +
-                             "Enter skipped indices within the array as a zero-indexed CSV and a new line between each entry.\n" +
+                             "Enter skipped indices within the array as a one-indexed CSV and a new line between each entry.\n" +
                              "\tEx: 0, 1\n" +
                              "Enabling callback will trigger a software response by the host program.";
             MessageBox.Show(helpStr, "Grid Maker Help");
