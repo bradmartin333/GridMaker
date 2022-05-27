@@ -85,7 +85,7 @@ namespace GridMaker
         {
             rtb.Text = "";
             foreach (Point point in step.SkippedIndices)
-                rtb.Text += $"{point.X}, {point.Y}\n";
+                rtb.Text += $"{point.X + 1}, {point.Y + 1}\n";
         }
 
         private bool MakeSkippedIndices(Step step, string text)
