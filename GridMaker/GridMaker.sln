@@ -5,7 +5,12 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUI", "SampleUI\SampleUI.csproj", "{974A4ECE-5E66-4ABC-9C50-B8136AA477AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridMaker", "GridMaker\GridMaker.csproj", "{B176FF2D-B905-414D-8B7F-81BA62F7F068}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GridMaker", "GridMaker\GridMaker.csproj", "{B176FF2D-B905-414D-8B7F-81BA62F7F068}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4E2AC1C8-3803-4AA7-9FA0-5B0A97CF5391}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
