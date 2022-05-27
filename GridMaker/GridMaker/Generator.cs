@@ -7,7 +7,7 @@ namespace GridMaker
 {
     public class Generator
     {
-        private readonly PointF SW, SE;
+        private readonly PointF SW, SE, Origin;
         private PointF CenterOfRotation;
 
         /// <summary>
@@ -19,6 +19,7 @@ namespace GridMaker
             public Point A;
             public Point B;
             public Point C;
+            public bool Callback;
             /// <summary>
             /// Get TSV string representation of the Node
             /// </summary>
@@ -32,28 +33,33 @@ namespace GridMaker
         /// Initialize the Grid Generator
         /// </summary>
         /// <param name="sw">
-        /// Stage coordinates in mm of SW corner of ROI
+        /// Stage coordinates in mm of SW corner of substrate
         /// </param>
         /// <param name="se">
-        /// Stage coordinates in mmof SE corner of ROI
+        /// Stage coordinates in mmof SE corner of substrate
         /// </param>
-        public Generator(PointF sw, PointF se)
+        /// <param name="origin">
+        /// Location of SW corner of ROI
+        /// </param>
+        public Generator(PointF sw, PointF se, PointF origin)
         {
             SW = sw;
             SE = se;
+            Origin = origin;
             UpdateCenterOfRotation();
         }
 
         /// <summary>
-        /// Get Node position rotated to ROI
+        /// Get Node position rotated to the substrate
         /// </summary>
         /// <param name="node"></param>
         /// <returns>
         /// Stage coordinates of aligned node in mm
+        /// in reference to the origin
         /// </returns>
         public PointF GetStagePosition(Node node)
         {
-            PointF globalPos = new PointF(SW.X - node.Location.X, SW.Y - node.Location.Y);
+            PointF globalPos = new PointF(Origin.X - node.Location.X, Origin.Y - node.Location.Y);
             RotatePoint(ref globalPos);
             return globalPos;
         }
@@ -98,7 +104,8 @@ namespace GridMaker
                             j * Composer.Grid.StepA.Pitch.Y),
                         A = point,
                         B = Point.Empty,
-                        C = Point.Empty
+                        C = Point.Empty,
+                        Callback = Composer.Grid.StepA.Callback,
                     });
                 }
             }
@@ -120,7 +127,8 @@ namespace GridMaker
                                 basePoints[k].Location.Y + j * Composer.Grid.StepB.Pitch.Y),
                             A = basePoints[k].A,
                             B = point,
-                            C = Point.Empty
+                            C = Point.Empty,
+                            Callback = Composer.Grid.StepB.Callback,
                         });
                     }
                 }
@@ -143,7 +151,8 @@ namespace GridMaker
                                 basePoints[k].Location.Y + j * Composer.Grid.StepC.Pitch.Y),
                             A = basePoints[k].A,
                             B = basePoints[k].B,
-                            C = point
+                            C = point,
+                            Callback = Composer.Grid.StepC.Callback,
                         });
                     }
                 }

@@ -33,9 +33,18 @@ namespace GridMaker
             Grid = new Grid()
             {
                 Name = TxtName.Text,
-                StepA = new Step(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), new PointF((float)NumStepAPitchX.Value, (float)NumStepAPitchY.Value)),
-                StepB = new Step(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), new PointF((float)NumStepBPitchX.Value, (float)NumStepBPitchY.Value)),
-                StepC = new Step(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), new PointF((float)NumStepCPitchX.Value, (float)NumStepCPitchY.Value)),
+                StepA = new Step(
+                    new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), 
+                    new PointF((float)NumStepAPitchX.Value, (float)NumStepAPitchY.Value),
+                    CBXA.Checked),
+                StepB = new Step(
+                    new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), 
+                    new PointF((float)NumStepBPitchX.Value, (float)NumStepBPitchY.Value),
+                    CBXB.Checked),
+                StepC = new Step(
+                    new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), 
+                    new PointF((float)NumStepCPitchX.Value, (float)NumStepCPitchY.Value),
+                    CBXC.Checked),
             };
             bool validA = MakeSkippedIndices(Grid.StepA, RTBA.Text);
             bool validB = MakeSkippedIndices(Grid.StepB, RTBB.Text);
@@ -61,6 +70,9 @@ namespace GridMaker
             PopulateRTB(Grid.StepA, RTBA);
             PopulateRTB(Grid.StepB, RTBB);
             PopulateRTB(Grid.StepC, RTBC);
+            CBXA.Checked = Grid.StepA.Callback;
+            CBXB.Checked = Grid.StepB.Callback;
+            CBXC.Checked = Grid.StepC.Callback;
         }
 
         private void PopulateRTB(Step step, RichTextBox rtb)
@@ -126,7 +138,7 @@ namespace GridMaker
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.RestoreDirectory = true;
-                ofd.Title = "Open Grid Maker";
+                ofd.Title = "Open Grid";
                 ofd.Filter = "XML file(*.xml)| *.xml";
                 if (ofd.ShowDialog() == DialogResult.OK)
                     LoadGrid(ofd.FileName);
@@ -138,7 +150,7 @@ namespace GridMaker
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
                 sfd.Filter = "XML file(*.xml)| *.xml";
-                sfd.Title = "Save Grid Maker";
+                sfd.Title = "Save Grid";
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
                     if (File.Exists(sfd.FileName)) File.Delete(sfd.FileName);
@@ -152,7 +164,8 @@ namespace GridMaker
             string helpStr = "Step A should have the largest pitches and Step C should have the smallest pitches.\n" +
                              "The Steps are nested to allow for greater customization.\n" +
                              "Enter skipped indices within the array as a zero-indexed CSV and a new line between each entry.\n" +
-                             "\tEx: 0, 1";
+                             "\tEx: 0, 1\n" +
+                             "Enabling callback will trigger a software response by the host program.";
             MessageBox.Show(helpStr, "Grid Maker Help");
         }
 
