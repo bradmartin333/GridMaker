@@ -877,7 +877,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnValidate.AutoSize = true;
-            this.BtnValidate.BackColor = System.Drawing.Color.Gold;
+            this.BtnValidate.BackColor = System.Drawing.Color.Wheat;
             this.TLP.SetColumnSpan(this.BtnValidate, 2);
             this.BtnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnValidate.Location = new System.Drawing.Point(239, 219);
