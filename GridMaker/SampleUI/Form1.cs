@@ -9,6 +9,8 @@ namespace SampleUI
 {
     public partial class Form1 : Form
     {
+        private Composer Composer = new Composer();
+
         public Form1()
         {
             InitializeComponent();
@@ -16,19 +18,16 @@ namespace SampleUI
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            using (Composer composer = new Composer())
+            DialogResult result = Composer.ShowDialog();
+            if (result == DialogResult.OK)
             {
-                DialogResult result = composer.ShowDialog();
-                if (result == DialogResult.OK)
+                Generator generator = new Generator(new PointF(100.0f, 0.003f), new PointF(0.001f, 0.002f), new PointF(50.0f, 50.0f));
+                List<Node> nodes = generator.Generate();
+                richTextBox1.Text = "";
+                for (int i = 0; i < nodes.Count; i++)
                 {
-                    Generator generator = new Generator(new PointF(100.0f, 0.003f), new PointF(0.001f, 0.002f), new PointF(50.0f, 50.0f));
-                    List<Node> nodes = generator.Generate();
-                    richTextBox1.Text = "";
-                    for (int i = 0; i < nodes.Count; i++)
-                    {
-                        PointF pos = generator.GetStagePosition(nodes[i]);
-                        richTextBox1.Text += $"{i + 1}\t{pos.X:f3}\t{pos.Y:f3}\t{nodes[i]}{(nodes[i].Callback ? "Callback" : "")}\n";
-                    }
+                    PointF pos = generator.GetStagePosition(nodes[i]);
+                    richTextBox1.Text += $"{i + 1}\t{pos.X:f3}\t{pos.Y:f3}\t{nodes[i]}{(nodes[i].Callback ? "Callback" : "")}\n";
                 }
             }
         }

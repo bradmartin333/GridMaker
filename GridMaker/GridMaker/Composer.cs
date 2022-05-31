@@ -26,7 +26,17 @@ namespace GridMaker
         public Composer()
         {
             InitializeComponent();
+            FormClosing += Composer_FormClosing;
             if (File.Exists(GridPath)) LoadGrid();
+        }
+
+        private void Composer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
         }
 
         private void BtnValidateAndSave_Click(object sender, EventArgs e)
@@ -182,7 +192,7 @@ namespace GridMaker
         private void BtnDone_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Dispose();
+            Hide();
         }
     }
 }
