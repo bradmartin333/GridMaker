@@ -27,7 +27,10 @@ namespace GridMaker
         {
             InitializeComponent();
             FormClosing += Composer_FormClosing;
-            if (File.Exists(GridPath)) LoadGrid();
+            if (File.Exists(GridPath))
+                LoadGrid();
+            else
+                TxtName.Text = Grid.Name;
         }
 
         private void Composer_FormClosing(object sender, FormClosingEventArgs e)
