@@ -146,14 +146,14 @@ namespace GridMaker
                             C = Point.Empty,
                             Callback = Composer.Grid.StepB.Callback,
                         };
-                        regionPoints.Add(nodeB);
+                        if (pointB != Point.Empty) regionPoints.Add(nodeB);
                         for (int k = 0; k < Composer.Grid.StepC.Array.Width; k++)
                             for (int l = 0; l < Composer.Grid.StepC.Array.Height; l++)
                             {
                                 Point pointC = new Point(k, l);
                                 if (pointC == Point.Empty) continue;
                                 if (Composer.Grid.StepC.SkippedIndices.Contains(pointC)) continue;
-                                regionPoints.Add(new Node
+                                Node nodeC = new Node
                                 {
                                     Location = new PointF(
                                         nodeB.Location.X + k * Composer.Grid.StepC.Pitch.X,
@@ -162,7 +162,8 @@ namespace GridMaker
                                     B = nodeB.B,
                                     C = pointC,
                                     Callback = Composer.Grid.StepC.Callback,
-                                });
+                                };
+                                if (pointC != Point.Empty) regionPoints.Add(nodeC);
                             }
                     }
                 points.AddRange(Serpentize(regionPoints));
