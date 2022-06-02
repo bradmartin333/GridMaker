@@ -33,6 +33,7 @@
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonViewIndices = new System.Windows.Forms.ToolStripButton();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TLP = new System.Windows.Forms.TableLayoutPanel();
             this.BtnDone = new System.Windows.Forms.Button();
@@ -118,6 +119,7 @@
             this.newToolStripButton,
             this.openToolStripButton,
             this.saveToolStripButton,
+            this.ToolStripButtonViewIndices,
             this.helpToolStripButton});
             this.ToolStrip.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip.Name = "ToolStrip";
@@ -155,6 +157,16 @@
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.saveToolStripButton.Text = "&Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.SaveToolStripButton_Click);
+            // 
+            // ToolStripButtonViewIndices
+            // 
+            this.ToolStripButtonViewIndices.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonViewIndices.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonViewIndices.Image")));
+            this.ToolStripButtonViewIndices.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonViewIndices.Name = "ToolStripButtonViewIndices";
+            this.ToolStripButtonViewIndices.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonViewIndices.Text = "View Indices";
+            this.ToolStripButtonViewIndices.Click += new System.EventHandler(this.ToolStripButtonViewIndices_Click);
             // 
             // helpToolStripButton
             // 
@@ -1057,6 +1069,7 @@
         private System.Windows.Forms.CheckBox CBXA;
         private System.Windows.Forms.CheckBox CBXB;
         private System.Windows.Forms.CheckBox CBXC;
+        private System.Windows.Forms.ToolStripButton ToolStripButtonViewIndices;
     }
 }
 
