@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Grid xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Demo</Name>
+  <StepA>
+    <Array>
+      <Width>2</Width>
+      <Height>2</Height>
+    </Array>
+    <Pitch>
+      <X>24</X>
+      <Y>26</Y>
+    </Pitch>
+    <SkippedIndices />
+    <Callback>true</Callback>
+  </StepA>
+  <StepB>
+    <Array>
+      <Width>3</Width>
+      <Height>2</Height>
+    </Array>
+    <Pitch>
+      <X>9</X>
+      <Y>12</Y>
+    </Pitch>
+    <SkippedIndices />
+    <Callback>false</Callback>
+  </StepB>
+  <StepC>
+    <Array>
+      <Width>2</Width>
+      <Height>3</Height>
+    </Array>
+    <Pitch>
+      <X>4</X>
+      <Y>4</Y>
+    </Pitch>
+    <SkippedIndices>
+      <Point>
+        <X>1</X>
+        <Y>1</Y>
+      </Point>
+    </SkippedIndices>
+    <Callback>false</Callback>
+  </StepC>
+</Grid>
