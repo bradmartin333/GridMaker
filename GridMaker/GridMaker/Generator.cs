@@ -96,9 +96,9 @@ namespace GridMaker
         private void UpdateCenterOfRotation()
         {
             CenterOfRotation = new PointF(0, 0);
-            PointF SWcopy = SW;
-            RotatePoint(ref SWcopy, true);
-            CenterOfRotation = new PointF(SW.X - SWcopy.X, SW.Y - SWcopy.Y);
+            PointF copy = Origin;
+            RotatePoint(ref copy, true);
+            CenterOfRotation = new PointF(Origin.X - copy.X, Origin.Y - copy.Y);
         }
 
         /// <summary>
