@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace GridMaker
 {
@@ -55,7 +54,7 @@ namespace GridMaker
         /// Stage coordinates in mm of SW corner of substrate
         /// </param>
         /// <param name="se">
-        /// Stage coordinates in mmof SE corner of substrate
+        /// Stage coordinates in mm of SE corner of substrate
         /// </param>
         /// <param name="origin">
         /// Location of SW corner of ROI
