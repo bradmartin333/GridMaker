@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -201,16 +202,8 @@ namespace GridMaker
 
         private void ToolStripButtonViewIndices_Click(object sender, EventArgs e)
         {
-            Generator generator = new Generator(Point.Empty, Point.Empty, Point.Empty);
-            List<Generator.Node> nodes = generator.Generate();
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("#\tRR\tRC\tR\tC\tSR\tSC\tCallback");
-            for (int i = 0; i < nodes.Count; i++)
-                sb.AppendLine($"{i + 1}\t{nodes[i]}{nodes[i].Callback}");
-            RichTextBox rtb = new RichTextBox() { Text = sb.ToString(), Dock = DockStyle.Fill };
-            Form form = new Form() { Text = "Grid Index View", Width = 500 };
-            form.Controls.Add(rtb);
-            form.ShowDialog();
+            PreviewForm previewForm = new PreviewForm();
+            if (!previewForm.IsDisposed) previewForm.ShowDialog();
         }
     }
 }
