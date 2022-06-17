@@ -14,10 +14,22 @@ namespace GridMaker
         private PointF CenterOfRotation;
 
         /// <summary>
+        /// A B or C Node
+        /// </summary>
+        public enum NodeType
+        {
+            A, B, C
+        }
+
+        /// <summary>
         /// Storage for Grid points
         /// </summary>
         public struct Node
         {
+            /// <summary>
+            /// Whether the Node is on the A, B or C grid
+            /// </summary>
+            public NodeType NodeType;
             /// <summary>
             /// The raw location of the node
             /// </summary>
@@ -116,6 +128,7 @@ namespace GridMaker
                     if (Composer.Grid.StepA.SkippedIndices.Contains(point)) continue;
                     basePoints.Add(new Node()
                     {
+                        NodeType = NodeType.A,
                         Location = new PointF(
                             i * Composer.Grid.StepA.Pitch.X,
                             j * Composer.Grid.StepA.Pitch.Y),
@@ -137,6 +150,7 @@ namespace GridMaker
                         if (Composer.Grid.StepB.SkippedIndices.Contains(pointB)) continue;
                         Node nodeB = new Node
                         {
+                            NodeType = NodeType.B,
                             Location = new PointF(
                                 basePoints[b].Location.X + i * Composer.Grid.StepB.Pitch.X,
                                 basePoints[b].Location.Y + j * Composer.Grid.StepB.Pitch.Y),
@@ -154,6 +168,7 @@ namespace GridMaker
                                 if (Composer.Grid.StepC.SkippedIndices.Contains(pointC)) continue;
                                 Node nodeC = new Node
                                 {
+                                    NodeType = NodeType.C,
                                     Location = new PointF(
                                         nodeB.Location.X + k * Composer.Grid.StepC.Pitch.X,
                                         nodeB.Location.Y + l * Composer.Grid.StepC.Pitch.Y),

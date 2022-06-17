@@ -51,7 +51,7 @@
             this.tableLayoutPanel.RowCount = 1;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(864, 370);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(984, 361);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // RTB
@@ -59,7 +59,7 @@
             this.RTB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RTB.Location = new System.Drawing.Point(3, 3);
             this.RTB.Name = "RTB";
-            this.RTB.Size = new System.Drawing.Size(426, 364);
+            this.RTB.Size = new System.Drawing.Size(486, 355);
             this.RTB.TabIndex = 0;
             this.RTB.Text = "";
             // 
@@ -76,7 +76,7 @@
             chartArea1.Name = "ChartArea1";
             this.PreviewChart.ChartAreas.Add(chartArea1);
             this.PreviewChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PreviewChart.Location = new System.Drawing.Point(435, 3);
+            this.PreviewChart.Location = new System.Drawing.Point(495, 3);
             this.PreviewChart.Name = "PreviewChart";
             series1.BorderWidth = 3;
             series1.ChartArea = "ChartArea1";
@@ -88,7 +88,7 @@
             series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
             series1.Name = "ScatterSeries";
             this.PreviewChart.Series.Add(series1);
-            this.PreviewChart.Size = new System.Drawing.Size(426, 364);
+            this.PreviewChart.Size = new System.Drawing.Size(486, 355);
             this.PreviewChart.TabIndex = 1;
             this.PreviewChart.Text = "chart1";
             // 
@@ -96,12 +96,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 370);
+            this.ClientSize = new System.Drawing.Size(984, 361);
             this.Controls.Add(this.tableLayoutPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(700, 325);
+            this.MinimumSize = new System.Drawing.Size(1000, 400);
             this.Name = "PreviewForm";
             this.Text = "Grid Preview";
             this.tableLayoutPanel.ResumeLayout(false);
