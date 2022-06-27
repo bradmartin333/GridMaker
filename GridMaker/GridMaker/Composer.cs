@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -25,9 +24,10 @@ namespace GridMaker
         /// and load the last used Grid from the
         /// temp directory
         /// </summary>
-        public Composer()
+        public Composer(bool useRCnotation = false)
         {
             InitializeComponent();
+            if (useRCnotation) SwitchToRC();
             FormClosing += Composer_FormClosing;
             if (File.Exists(GridPath))
                 LoadGrid();
@@ -42,6 +42,25 @@ namespace GridMaker
                 e.Cancel = true;
                 Hide();
             }
+        }
+
+        private void SwitchToRC()
+        {
+            foreach (FlowLayoutPanel flow in TLP.Controls.OfType<FlowLayoutPanel>())
+            {
+                foreach (Label lbl in flow.Controls.OfType<Label>().Where(x => x.Tag != null))
+                    lbl.Text = lbl.Tag.ToString();
+                switch (flow.Tag.ToString())
+                {
+                    case "X":
+                        TLP.SetColumn(flow, TLP.GetColumn(flow) + 1);
+                        break;
+                    case "Y":
+                        TLP.SetColumn(flow, TLP.GetColumn(flow) - 1);
+                        break;
+                }
+            }
+                
         }
 
         private void BtnValidateAndSave_Click(object sender, EventArgs e)

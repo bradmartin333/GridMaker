@@ -262,6 +262,7 @@
             this.FlowNumA.Name = "FlowNumA";
             this.FlowNumA.Size = new System.Drawing.Size(99, 49);
             this.FlowNumA.TabIndex = 0;
+            this.FlowNumA.Tag = "X";
             // 
             // label1
             // 
@@ -271,6 +272,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 19);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "RC";
             this.label1.Text = "A X";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -305,6 +307,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.Tag = "X";
             // 
             // label2
             // 
@@ -314,6 +317,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 19);
             this.label2.TabIndex = 2;
+            this.label2.Tag = "C";
             this.label2.Text = "B X";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -348,6 +352,7 @@
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel11.TabIndex = 3;
+            this.flowLayoutPanel11.Tag = "Y";
             // 
             // label14
             // 
@@ -357,6 +362,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 19);
             this.label14.TabIndex = 0;
+            this.label14.Tag = "SR";
             this.label14.Text = "A Y";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -397,6 +403,7 @@
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel10.TabIndex = 3;
+            this.flowLayoutPanel10.Tag = "X";
             // 
             // label13
             // 
@@ -406,6 +413,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(93, 19);
             this.label13.TabIndex = 0;
+            this.label13.Tag = "SC";
             this.label13.Text = "C X";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -446,6 +454,7 @@
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel9.TabIndex = 3;
+            this.flowLayoutPanel9.Tag = "Y";
             // 
             // label12
             // 
@@ -455,6 +464,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(93, 19);
             this.label12.TabIndex = 0;
+            this.label12.Tag = "R";
             this.label12.Text = "A Y";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -495,6 +505,7 @@
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
             this.flowLayoutPanel8.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel8.TabIndex = 3;
+            this.flowLayoutPanel8.Tag = "X";
             // 
             // label11
             // 
@@ -504,6 +515,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 19);
             this.label11.TabIndex = 0;
+            this.label11.Tag = "C";
             this.label11.Text = "B X";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -544,6 +556,7 @@
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel7.TabIndex = 3;
+            this.flowLayoutPanel7.Tag = "Y";
             // 
             // label10
             // 
@@ -553,6 +566,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 19);
             this.label10.TabIndex = 0;
+            this.label10.Tag = "RR";
             this.label10.Text = "A Y";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -593,6 +607,7 @@
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel6.TabIndex = 2;
+            this.flowLayoutPanel6.Tag = "X";
             // 
             // label9
             // 
@@ -602,6 +617,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(93, 19);
             this.label9.TabIndex = 0;
+            this.label9.Tag = "RC";
             this.label9.Text = "A X";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -642,6 +658,7 @@
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel5.TabIndex = 2;
+            this.flowLayoutPanel5.Tag = "Y";
             // 
             // label6
             // 
@@ -651,6 +668,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 19);
             this.label6.TabIndex = 2;
+            this.label6.Tag = "SR";
             this.label6.Text = "C Y";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -685,6 +703,7 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel4.TabIndex = 2;
+            this.flowLayoutPanel4.Tag = "Y";
             // 
             // label5
             // 
@@ -694,6 +713,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 19);
             this.label5.TabIndex = 2;
+            this.label5.Tag = "R";
             this.label5.Text = "B Y";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -728,6 +748,7 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel3.TabIndex = 2;
+            this.flowLayoutPanel3.Tag = "Y";
             // 
             // label4
             // 
@@ -737,6 +758,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 19);
             this.label4.TabIndex = 2;
+            this.label4.Tag = "RR";
             this.label4.Text = "A Y";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -771,6 +793,7 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(99, 49);
             this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel2.Tag = "X";
             // 
             // label3
             // 
@@ -780,6 +803,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 19);
             this.label3.TabIndex = 2;
+            this.label3.Tag = "SC";
             this.label3.Text = "C X";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -978,6 +1002,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(700, 325);
             this.Name = "Composer";
+            this.Tag = "RR";
             this.Text = "Grid Maker";
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();

@@ -7,7 +7,7 @@ namespace SampleUI
 {
     public partial class Form1 : Form
     {
-        private readonly Composer Composer = new Composer();
+        private readonly Composer Composer = new Composer(true);
 
         public Form1()
         {
