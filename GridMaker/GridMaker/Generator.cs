@@ -123,12 +123,24 @@ namespace GridMaker
             // Need to round this XY to correct for floating point arithmetic (near 0 numbers)
             if (UseOptics)
                 Origin = new PointF(
-                    (float)Math.Round(Start.Location.X - ((Start.A.X - 1) * Composer.Grid.StepA.Pitch.X) - ((Start.B.X - 1) * Composer.Grid.StepB.Pitch.X) - ((Start.C.X - 1) * Composer.Grid.StepC.Pitch.X), 6),
-                    (float)Math.Round(Start.Location.Y - ((Start.A.Y - 1) * Composer.Grid.StepA.Pitch.Y) - ((Start.B.Y - 1) * Composer.Grid.StepB.Pitch.Y) - ((Start.C.Y - 1) * Composer.Grid.StepC.Pitch.Y), 6));
+                    (float)Math.Round(Start.Location.X - 
+                        ((Start.A.X - 1) * Composer.Grid.StepA.Pitch.X) - 
+                        ((Start.B.X - 1) * Composer.Grid.StepB.Pitch.X) - 
+                        ((Start.C.X - 1) * Composer.Grid.StepC.Pitch.X), 6),
+                    (float)Math.Round(Start.Location.Y - 
+                        ((Start.A.Y - 1) * Composer.Grid.StepA.Pitch.Y) - 
+                        ((Start.B.Y - 1) * Composer.Grid.StepB.Pitch.Y) - 
+                        ((Start.C.Y - 1) * Composer.Grid.StepC.Pitch.Y), 6));
             else
                 Origin = new PointF(
-                    (float)Math.Round(Start.Location.X + ((Start.A.X - 1) * Composer.Grid.StepA.Pitch.X) + ((Start.B.X - 1) * Composer.Grid.StepB.Pitch.X) + ((Start.C.X - 1) * Composer.Grid.StepC.Pitch.X), 6),
-                    (float)Math.Round(Start.Location.Y + ((Start.A.Y - 1) * Composer.Grid.StepA.Pitch.Y) + ((Start.B.Y - 1) * Composer.Grid.StepB.Pitch.Y) + ((Start.C.Y - 1) * Composer.Grid.StepC.Pitch.Y), 6));
+                    (float)Math.Round(Start.Location.X + 
+                        ((Start.A.X - 1) * Composer.Grid.StepA.Pitch.X) + 
+                        ((Start.B.X - 1) * Composer.Grid.StepB.Pitch.X) + 
+                        ((Start.C.X - 1) * Composer.Grid.StepC.Pitch.X), 6),
+                    (float)Math.Round(Start.Location.Y + 
+                        ((Start.A.Y - 1) * Composer.Grid.StepA.Pitch.Y) + 
+                        ((Start.B.Y - 1) * Composer.Grid.StepB.Pitch.Y) + 
+                        ((Start.C.Y - 1) * Composer.Grid.StepC.Pitch.Y), 6));
         }
 
         /// <summary>
