@@ -120,9 +120,10 @@ namespace GridMaker
             PointF copy = Start.Location;
             RotatePoint(ref copy, true);
             CenterOfRotation = new PointF(Start.Location.X - copy.X, Start.Location.Y - copy.Y);
+            // Need to round this XY to correct for floating point arithmetic (near 0 numbers)
             Origin = new PointF(
-                Start.Location.X - (Start.A.X * Composer.Grid.StepA.Pitch.X) - (Start.B.X * Composer.Grid.StepB.Pitch.X) - (Start.C.X * Composer.Grid.StepC.Pitch.X),
-                Start.Location.Y - (Start.A.Y * Composer.Grid.StepA.Pitch.Y) - (Start.B.Y * Composer.Grid.StepB.Pitch.Y) - (Start.C.Y * Composer.Grid.StepC.Pitch.Y));
+                (float)Math.Round(Start.Location.X + ((Start.A.X - 1) * Composer.Grid.StepA.Pitch.X) + ((Start.B.X - 1) * Composer.Grid.StepB.Pitch.X) + ((Start.C.X - 1) * Composer.Grid.StepC.Pitch.X), 6),
+                (float)Math.Round(Start.Location.Y + ((Start.A.Y - 1) * Composer.Grid.StepA.Pitch.Y) + ((Start.B.Y - 1) * Composer.Grid.StepB.Pitch.Y) + ((Start.C.Y - 1) * Composer.Grid.StepC.Pitch.Y), 6));
         }
 
         /// <summary>

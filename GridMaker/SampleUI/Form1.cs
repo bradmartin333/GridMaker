@@ -7,7 +7,7 @@ namespace SampleUI
 {
     public partial class Form1 : Form
     {
-        private readonly Composer Composer = new Composer(true);
+        private readonly Composer Composer = new Composer();
 
         public Form1()
         {
@@ -19,7 +19,7 @@ namespace SampleUI
             _ = Composer.ShowDialog();
             Generator generator = new Generator(
                 new System.Drawing.PointF(0, 50),
-                new System.Drawing.PointF(50, 50),
+                new System.Drawing.PointF(50, 51),
                 new Generator.Node());
             var points = generator.Generate();
             StringBuilder sb = new StringBuilder();
