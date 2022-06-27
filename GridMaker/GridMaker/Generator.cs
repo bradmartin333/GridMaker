@@ -142,7 +142,9 @@ namespace GridMaker
             List<Node> points = new List<Node>();
             for (int b = 0; b < basePoints.Count(); b++)
             {
-                List<Node> regionPoints = new List<Node>() { basePoints[b] };
+                if (!Composer.Grid.StepB.SkippedIndices.Contains(new Point(0,0)))
+                    points.Add(basePoints[b]);
+
                 for (int i = 0; i < Composer.Grid.StepB.Array.Width; i++)
                     for (int j = 0; j < Composer.Grid.StepB.Array.Height; j++)
                     {
@@ -159,7 +161,7 @@ namespace GridMaker
                             C = Point.Empty,
                             Callback = Composer.Grid.StepB.Callback,
                         };
-                        if (pointB != Point.Empty) regionPoints.Add(nodeB);
+                        if (pointB != Point.Empty) points.Add(nodeB);
                         for (int k = 0; k < Composer.Grid.StepC.Array.Width; k++)
                             for (int l = 0; l < Composer.Grid.StepC.Array.Height; l++)
                             {
@@ -177,29 +179,12 @@ namespace GridMaker
                                     C = pointC,
                                     Callback = Composer.Grid.StepC.Callback,
                                 };
-                                if (pointC != Point.Empty) regionPoints.Add(nodeC);
+                                if (pointC != Point.Empty) points.Add(nodeC);
                             }
                     }
-                points.AddRange(Serpentize(regionPoints));
             }
 
             return points;
-        }
-
-        private List<Node> Serpentize(List<Node> points)
-        {
-            List<Node> output = new List<Node>();
-            var groups = points.OrderBy(x => x.Location.X).OrderBy(x => x.Location.Y).GroupBy(x => x.Location.X);
-            int idx = 0;
-            foreach (IGrouping<float, Node> group in groups)
-            {
-                if (idx % 2 != 0) // Odd groups
-                    output.AddRange(group.ToArray().Reverse());
-                else
-                    output.AddRange(group.ToArray());
-                idx++;
-            }
-            return output;
         }
     }
 }
