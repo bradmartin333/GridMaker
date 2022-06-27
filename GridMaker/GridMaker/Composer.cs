@@ -114,7 +114,7 @@ namespace GridMaker
                 {
                     bool validX = int.TryParse(cols[0].Replace(" ", ""), out int x);
                     bool validY = int.TryParse(cols[1].Replace(" ", ""), out int y);
-                    if (validX && validY) points.Add(new Point(x - 1, y - 1));
+                    if (validX && validY && x > 0 && y > 0) points.Add(new Point(x - 1, y - 1));
                 }
             }
             step.SkippedIndices = points;

@@ -142,7 +142,7 @@ namespace GridMaker
             List<Node> points = new List<Node>();
             for (int b = 0; b < basePoints.Count(); b++)
             {
-                if (!Composer.Grid.StepB.SkippedIndices.Contains(new Point(0,0)))
+                if (!Composer.Grid.StepB.SkippedIndices.Contains(new Point(0, 0)))
                     points.Add(basePoints[b]);
 
                 for (int i = 0; i < Composer.Grid.StepB.Array.Width; i++)
