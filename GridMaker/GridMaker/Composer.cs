@@ -24,6 +24,9 @@ namespace GridMaker
         /// and load the last used Grid from the
         /// temp directory
         /// </summary>
+        /// <param name="useRCnotation">
+        /// Flips X and Y order in UI and adjusts labels
+        /// </param>
         public Composer(bool useRCnotation = false)
         {
             InitializeComponent();

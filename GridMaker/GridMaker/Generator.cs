@@ -73,6 +73,9 @@ namespace GridMaker
         /// <param name="initialIndex">
         /// Location of a valid index in ROI
         /// </param>
+        /// <param name="useOptics">
+        /// True flips direction of movement within grid
+        /// </param>
         public Generator(PointF sw, PointF se, Node initialIndex, bool useOptics = false)
         {
             SW = sw;
