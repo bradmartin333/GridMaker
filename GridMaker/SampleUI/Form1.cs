@@ -20,7 +20,7 @@ namespace SampleUI
             Generator generator = new Generator(
                 new System.Drawing.PointF(0, 50),
                 new System.Drawing.PointF(50, 50),
-                new System.Drawing.PointF(48, 48));
+                new Generator.Node());
             var points = generator.Generate();
             StringBuilder sb = new StringBuilder();
             foreach (var item in points)

@@ -10,8 +10,9 @@ namespace GridMaker
     /// </summary>
     public class Generator
     {
-        private readonly PointF SW, SE, Origin;
-        private PointF CenterOfRotation;
+        private readonly Node Start;
+        private readonly PointF SW, SE;
+        private PointF CenterOfRotation, Origin;
 
         /// <summary>
         /// A B or C Node
@@ -68,14 +69,14 @@ namespace GridMaker
         /// <param name="se">
         /// Stage coordinates in mm of SE corner of substrate
         /// </param>
-        /// <param name="origin">
-        /// Location of SW corner of ROI
+        /// <param name="initialIndex">
+        /// Location of a valid index in ROI
         /// </param>
-        public Generator(PointF sw, PointF se, PointF origin)
+        public Generator(PointF sw, PointF se, Node initialIndex)
         {
             SW = sw;
             SE = se;
-            Origin = origin;
+            Start = initialIndex;
             UpdateCenterOfRotation();
         }
 
@@ -107,9 +108,12 @@ namespace GridMaker
         private void UpdateCenterOfRotation()
         {
             CenterOfRotation = new PointF(0, 0);
-            PointF copy = Origin;
+            PointF copy = Start.Location;
             RotatePoint(ref copy, true);
-            CenterOfRotation = new PointF(Origin.X - copy.X, Origin.Y - copy.Y);
+            CenterOfRotation = new PointF(Start.Location.X - copy.X, Start.Location.Y - copy.Y);
+            Origin = new PointF(
+                Start.Location.X - (Start.A.X * Composer.Grid.StepA.Pitch.X) - (Start.B.X * Composer.Grid.StepB.Pitch.X) - (Start.C.X * Composer.Grid.StepC.Pitch.X),
+                Start.Location.Y - (Start.A.Y * Composer.Grid.StepA.Pitch.Y) - (Start.B.Y * Composer.Grid.StepB.Pitch.Y) - (Start.C.Y * Composer.Grid.StepC.Pitch.Y));
         }
 
         /// <summary>

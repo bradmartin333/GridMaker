@@ -10,7 +10,7 @@ namespace GridMaker
         public PreviewForm()
         {
             InitializeComponent();
-            Generator generator = new Generator(Point.Empty, Point.Empty, Point.Empty);
+            Generator generator = new Generator(Point.Empty, Point.Empty, new Generator.Node());
             List<Generator.Node> nodes = generator.Generate();
             if (nodes.Count > 10e3)
             {
