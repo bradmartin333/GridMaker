@@ -10,6 +10,7 @@ namespace GridMaker
     /// </summary>
     public class Generator
     {
+        private readonly bool UseOptics;
         private readonly Node Start;
         private readonly PointF SW, SE;
         private PointF CenterOfRotation, Origin;
@@ -72,11 +73,12 @@ namespace GridMaker
         /// <param name="initialIndex">
         /// Location of a valid index in ROI
         /// </param>
-        public Generator(PointF sw, PointF se, Node initialIndex)
+        public Generator(PointF sw, PointF se, Node initialIndex, bool useOptics = false)
         {
             SW = sw;
             SE = se;
             Start = initialIndex;
+            UseOptics = useOptics;
             UpdateCenterOfRotation();
         }
 
@@ -90,7 +92,11 @@ namespace GridMaker
         /// </returns>
         public PointF GetStagePosition(Node node)
         {
-            PointF globalPos = new PointF(Origin.X - node.Location.X, Origin.Y - node.Location.Y);
+            PointF globalPos;
+            if (UseOptics)
+                globalPos = new PointF(Origin.X + node.Location.X, Origin.Y + node.Location.Y);
+            else
+                globalPos = new PointF(Origin.X - node.Location.X, Origin.Y - node.Location.Y);
             RotatePoint(ref globalPos);
             return globalPos;
         }
