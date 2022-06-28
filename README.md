@@ -1,6 +1,8 @@
 # GridMaker ![Nuget](https://img.shields.io/nuget/v/GridMaker)
 Easy UI for nested coordinate grids
 
+### This README is valid for core concepts, but is somewhat out of date
+
 ![image](https://user-images.githubusercontent.com/19335151/172191032-eaa1b490-afe9-4483-baed-ba9ee4067ec0.png)
 
 Callbacks can be configured to trigger a software response by the host program. In most cases, a handled callback triggers an Auto Focus routine to run.
