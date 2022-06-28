@@ -13,6 +13,7 @@ namespace GridMaker
     /// </summary>
     public partial class Composer : Form
     {
+        private readonly bool UseRC = true;
         private readonly string GridPath = $"{Path.GetTempPath()}GridMaker.xml";
         /// <summary>
         /// The Grid currently active in GridMaker
@@ -27,10 +28,11 @@ namespace GridMaker
         /// <param name="useRCnotation">
         /// Flips X and Y order in UI and adjusts labels
         /// </param>
-        public Composer(bool useRCnotation = false)
+        public Composer(bool useRCnotation = true)
         {
             InitializeComponent();
-            if (useRCnotation) SwitchToRC();
+            UseRC = useRCnotation;
+            if (UseRC) SwitchToRC();
             FormClosing += Composer_FormClosing;
             if (File.Exists(GridPath))
                 LoadGrid();
@@ -64,6 +66,45 @@ namespace GridMaker
                 }
             }
                 
+        }
+
+        private void IndexEditA_Click(object sender, EventArgs e)
+        {
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), Grid.StepA.SkippedIndices))
+            {
+                DialogResult result = indexSelector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Grid.StepA.SkippedIndices = indexSelector.SkippedIndices;
+                    PopulateRTB(Grid.StepA, RTBA);
+                }
+            }
+        }
+
+        private void IndexEditB_Click(object sender, EventArgs e)
+        {
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), Grid.StepB.SkippedIndices))
+            {
+                DialogResult result = indexSelector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Grid.StepB.SkippedIndices = indexSelector.SkippedIndices;
+                    PopulateRTB(Grid.StepB, RTBB);
+                }
+            }
+        }
+
+        private void IndexEditC_Click(object sender, EventArgs e)
+        {
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), Grid.StepC.SkippedIndices))
+            {
+                DialogResult result = indexSelector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Grid.StepC.SkippedIndices = indexSelector.SkippedIndices;
+                    PopulateRTB(Grid.StepC, RTBC);
+                }
+            }
         }
 
         private void BtnValidateAndSave_Click(object sender, EventArgs e)
@@ -122,7 +163,7 @@ namespace GridMaker
         {
             rtb.Text = "";
             foreach (Point point in step.SkippedIndices)
-                rtb.Text += $"{point.X + 1}, {point.Y + 1}\n";
+                rtb.Text += $"{(UseRC ? point.Y : point.X) + 1}, {(UseRC ? point.X : point.Y) + 1}\n";
         }
 
         private bool MakeSkippedIndices(Step step, string text)
@@ -134,8 +175,8 @@ namespace GridMaker
                 string[] cols = row.Split(',');
                 if (cols.Length == 2)
                 {
-                    bool validX = int.TryParse(cols[0].Replace(" ", ""), out int x);
-                    bool validY = int.TryParse(cols[1].Replace(" ", ""), out int y);
+                    bool validX = int.TryParse(cols[UseRC ? 1 : 0].Replace(" ", ""), out int x);
+                    bool validY = int.TryParse(cols[UseRC ? 0 : 1].Replace(" ", ""), out int y);
                     if (validX && validY && x > 0 && y > 0) points.Add(new Point(x - 1, y - 1));
                 }
             }
