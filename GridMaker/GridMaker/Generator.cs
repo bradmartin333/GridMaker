@@ -108,7 +108,7 @@ namespace GridMaker
         {
             if (point == SW && !getCOR)
                 return;
-            double angle = -1 * Math.Atan((SE.Y - SW.Y) / Math.Abs(SE.X - SW.X));
+            double angle = (UseOptics ? 1 : -1) * Math.Atan((SE.Y - SW.Y) / Math.Abs(SE.X - SW.X));
             float x = (float)(point.X * Math.Cos(angle) - point.Y * Math.Sin(angle));
             float y = (float)(point.X * Math.Sin(angle) + point.Y * Math.Cos(angle));
             point = new PointF(x + CenterOfRotation.X, y + CenterOfRotation.Y);
