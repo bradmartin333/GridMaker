@@ -18,7 +18,7 @@ namespace GridMaker
             InitializeComponent();
             _GridSize = gridSize;
             _SkippedIndices = skippedIndices;
-            pictureBox.MouseUp += PictureBox_MouseUp;
+            pictureBox.MouseDown += PictureBox_MouseDown;
             pictureBox.MouseMove += PictureBox_MouseMove;
             pictureBox.MouseEnter += PictureBox_MouseEnter;
             pictureBox.MouseLeave += PictureBox_MouseLeave;
@@ -55,7 +55,7 @@ namespace GridMaker
             Functions.HighlightTile(e.Location, this);
         }
 
-        private void PictureBox_MouseUp(object sender, MouseEventArgs e)
+        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             Functions.ClickTile(e.Location, this);
             _SkippedIndices = Functions.GetSkippedTileLocations();
