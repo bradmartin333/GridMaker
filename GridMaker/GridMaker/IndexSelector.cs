@@ -26,6 +26,7 @@ namespace GridMaker
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
+            _SkippedIndices = Functions.GetSkippedTileLocations();
             DialogResult = DialogResult.OK;
             Close();
             return;
@@ -58,7 +59,6 @@ namespace GridMaker
         private void PictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             Functions.ClickTile(e.Location, this);
-            _SkippedIndices = Functions.GetSkippedTileLocations();
         }
     }
 }
