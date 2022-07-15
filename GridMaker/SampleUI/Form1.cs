@@ -28,7 +28,7 @@ namespace SampleUI
                 var point = generator.GetStagePosition(item);
                 sb.AppendLine($"{point.X}\t{point.Y}\t{item}");
             }
-            Clipboard.SetText(sb.ToString());
+            if (!string.IsNullOrEmpty(sb.ToString())) Clipboard.SetText(sb.ToString());
         }
     }
 }

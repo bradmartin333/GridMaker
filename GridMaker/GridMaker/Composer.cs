@@ -13,12 +13,13 @@ namespace GridMaker
     /// </summary>
     public partial class Composer : Form
     {
-        private readonly bool UseRC = true;
-        private readonly string GridPath = $"{Path.GetTempPath()}GridMaker.xml";
         /// <summary>
         /// The Grid currently active in GridMaker
         /// </summary>
         public static Grid Grid = new Grid();
+
+        private readonly bool UseRC = true;
+        private readonly string GridPath = $"{Path.GetTempPath()}GridMaker.xml";
 
         /// <summary>
         /// Open a Grid Maker Composer window
@@ -32,13 +33,88 @@ namespace GridMaker
         {
             InitializeComponent();
             UseRC = useRCnotation;
-            if (UseRC) SwitchToRC();
+            if (UseRC)
+            {
+                SwitchToRC();
+                InitializeTabOrderRC();
+            }
+            else
+                InitializeTabOrderXY();
+
+            foreach (Control item in TabOrder)
+            {
+                item.GotFocus += Item_GotFocus;
+                item.Click += Item_Click;
+            }
+
+            Shown += Composer_Shown;
             FormClosing += Composer_FormClosing;
+
             if (File.Exists(GridPath))
                 LoadGrid();
             else
                 TxtName.Text = Grid.Name;
         }
+
+        #region Tab Order
+
+        private Control[] TabOrder;
+        private int TabOrderIndex = 0;
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Tab:
+                    TabOrderIndex++;
+                    if (TabOrderIndex > TabOrder.Length - 1) TabOrderIndex = 0;
+                    TabOrder[TabOrderIndex].Focus();
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void InitializeTabOrderXY()
+        {
+            TabOrder = new Control[]
+            {
+                NumStepACountX, NumStepACountY, NumStepBCountX, NumStepBCountY, NumStepCCountX, NumStepCCountY,
+                NumStepAPitchX, NumStepAPitchY, NumStepBPitchX, NumStepBPitchY, NumStepCPitchX, NumStepCPitchY,
+            };
+        }
+
+        private void InitializeTabOrderRC()
+        {
+            TabOrder = new Control[]
+            {
+                NumStepACountY, NumStepACountX, NumStepBCountY, NumStepBCountX, NumStepCCountY, NumStepCCountX,
+                NumStepAPitchY, NumStepAPitchX, NumStepBPitchY, NumStepBPitchX, NumStepCPitchY, NumStepCPitchX,
+            };
+        }
+
+        private void Item_Click(object sender, EventArgs e)
+        {
+            SelectNum(sender);
+        }
+
+        private void Item_GotFocus(object sender, EventArgs e)
+        {
+            SelectNum(sender);
+        }
+
+        private void SelectNum(object sender)
+        {
+            NumericUpDown num = (NumericUpDown)sender;
+            num.Select(0, num.Text.Length);
+            TabOrderIndex = TabOrder.ToList().IndexOf((Control)sender);
+        }
+
+        private void Composer_Shown(object sender, EventArgs e)
+        {
+            TabOrder[0].Focus();
+        }
+
+        #endregion
 
         private void Composer_FormClosing(object sender, FormClosingEventArgs e)
         {

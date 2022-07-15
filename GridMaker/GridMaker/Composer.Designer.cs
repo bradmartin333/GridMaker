@@ -247,7 +247,7 @@
             this.BtnDone.AutoSize = true;
             this.TLP.SetColumnSpan(this.BtnDone, 3);
             this.BtnDone.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnDone.Location = new System.Drawing.Point(465, 217);
+            this.BtnDone.Location = new System.Drawing.Point(465, 219);
             this.BtnDone.Name = "BtnDone";
             this.BtnDone.Size = new System.Drawing.Size(199, 29);
             this.BtnDone.TabIndex = 12;
@@ -264,7 +264,7 @@
             this.FlowNumA.Controls.Add(this.label1);
             this.FlowNumA.Controls.Add(this.NumStepACountX);
             this.FlowNumA.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowNumA.Location = new System.Drawing.Point(17, 38);
+            this.FlowNumA.Location = new System.Drawing.Point(17, 39);
             this.FlowNumA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FlowNumA.Name = "FlowNumA";
             this.FlowNumA.Size = new System.Drawing.Size(99, 49);
@@ -309,7 +309,7 @@
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.NumStepBCountX);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 95);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 96);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(99, 49);
@@ -354,7 +354,7 @@
             this.flowLayoutPanel11.Controls.Add(this.label14);
             this.flowLayoutPanel11.Controls.Add(this.NumStepCPitchY);
             this.flowLayoutPanel11.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel11.Location = new System.Drawing.Point(346, 152);
+            this.flowLayoutPanel11.Location = new System.Drawing.Point(346, 153);
             this.flowLayoutPanel11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel11.Name = "flowLayoutPanel11";
             this.flowLayoutPanel11.Size = new System.Drawing.Size(99, 49);
@@ -405,7 +405,7 @@
             this.flowLayoutPanel10.Controls.Add(this.label13);
             this.flowLayoutPanel10.Controls.Add(this.NumStepCPitchX);
             this.flowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(241, 152);
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(241, 153);
             this.flowLayoutPanel10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel10.Name = "flowLayoutPanel10";
             this.flowLayoutPanel10.Size = new System.Drawing.Size(99, 49);
@@ -456,7 +456,7 @@
             this.flowLayoutPanel9.Controls.Add(this.label12);
             this.flowLayoutPanel9.Controls.Add(this.NumStepBPitchY);
             this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel9.Location = new System.Drawing.Point(346, 95);
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(346, 96);
             this.flowLayoutPanel9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel9.Name = "flowLayoutPanel9";
             this.flowLayoutPanel9.Size = new System.Drawing.Size(99, 49);
@@ -507,7 +507,7 @@
             this.flowLayoutPanel8.Controls.Add(this.label11);
             this.flowLayoutPanel8.Controls.Add(this.NumStepBPitchX);
             this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel8.Location = new System.Drawing.Point(241, 95);
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(241, 96);
             this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
             this.flowLayoutPanel8.Size = new System.Drawing.Size(99, 49);
@@ -558,7 +558,7 @@
             this.flowLayoutPanel7.Controls.Add(this.label10);
             this.flowLayoutPanel7.Controls.Add(this.NumStepAPitchY);
             this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(346, 38);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(346, 39);
             this.flowLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
             this.flowLayoutPanel7.Size = new System.Drawing.Size(99, 49);
@@ -609,7 +609,7 @@
             this.flowLayoutPanel6.Controls.Add(this.label9);
             this.flowLayoutPanel6.Controls.Add(this.NumStepAPitchX);
             this.flowLayoutPanel6.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel6.Location = new System.Drawing.Point(241, 38);
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(241, 39);
             this.flowLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(99, 49);
@@ -660,7 +660,7 @@
             this.flowLayoutPanel5.Controls.Add(this.label6);
             this.flowLayoutPanel5.Controls.Add(this.NumStepCCountY);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(122, 152);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(122, 153);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(99, 49);
@@ -705,7 +705,7 @@
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.NumStepBCountY);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(122, 95);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(122, 96);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(99, 49);
@@ -750,7 +750,7 @@
             this.flowLayoutPanel3.Controls.Add(this.label4);
             this.flowLayoutPanel3.Controls.Add(this.NumStepACountY);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(122, 38);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(122, 39);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(99, 49);
@@ -795,7 +795,7 @@
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Controls.Add(this.NumStepCCountX);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(17, 152);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(17, 153);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(99, 49);
@@ -837,7 +837,7 @@
             this.TLP.SetColumnSpan(this.label7, 2);
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 9);
+            this.label7.Location = new System.Drawing.Point(17, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(204, 25);
             this.label7.TabIndex = 3;
@@ -850,7 +850,7 @@
             this.TLP.SetColumnSpan(this.label8, 2);
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(241, 9);
+            this.label8.Location = new System.Drawing.Point(241, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(204, 25);
             this.label8.TabIndex = 4;
@@ -863,7 +863,7 @@
             this.TLP.SetColumnSpan(this.label15, 2);
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(465, 9);
+            this.label15.Location = new System.Drawing.Point(465, 10);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(129, 25);
             this.label15.TabIndex = 5;
@@ -876,7 +876,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RTBA.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTBA.Location = new System.Drawing.Point(465, 37);
+            this.RTBA.Location = new System.Drawing.Point(465, 38);
             this.RTBA.Name = "RTBA";
             this.RTBA.Size = new System.Drawing.Size(94, 51);
             this.RTBA.TabIndex = 6;
@@ -888,7 +888,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RTBB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTBB.Location = new System.Drawing.Point(465, 94);
+            this.RTBB.Location = new System.Drawing.Point(465, 95);
             this.RTBB.Name = "RTBB";
             this.RTBB.Size = new System.Drawing.Size(94, 51);
             this.RTBB.TabIndex = 7;
@@ -900,7 +900,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RTBC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.RTBC.Location = new System.Drawing.Point(465, 151);
+            this.RTBC.Location = new System.Drawing.Point(465, 152);
             this.RTBC.Name = "RTBC";
             this.RTBC.Size = new System.Drawing.Size(94, 51);
             this.RTBC.TabIndex = 8;
@@ -910,7 +910,7 @@
             // 
             this.TxtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TLP.SetColumnSpan(this.TxtName, 2);
-            this.TxtName.Location = new System.Drawing.Point(17, 219);
+            this.TxtName.Location = new System.Drawing.Point(17, 221);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(204, 25);
             this.TxtName.TabIndex = 10;
@@ -924,7 +924,7 @@
             this.BtnValidate.BackColor = System.Drawing.Color.Wheat;
             this.TLP.SetColumnSpan(this.BtnValidate, 2);
             this.BtnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnValidate.Location = new System.Drawing.Point(241, 217);
+            this.BtnValidate.Location = new System.Drawing.Point(241, 219);
             this.BtnValidate.Name = "BtnValidate";
             this.BtnValidate.Size = new System.Drawing.Size(204, 29);
             this.BtnValidate.TabIndex = 11;
@@ -937,7 +937,7 @@
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(600, 9);
+            this.label16.Location = new System.Drawing.Point(600, 10);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(64, 25);
             this.label16.TabIndex = 13;
@@ -954,7 +954,7 @@
             this.CBXA.BackColor = System.Drawing.Color.White;
             this.CBXA.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGreen;
             this.CBXA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CBXA.Location = new System.Drawing.Point(607, 44);
+            this.CBXA.Location = new System.Drawing.Point(607, 45);
             this.CBXA.Margin = new System.Windows.Forms.Padding(10);
             this.CBXA.Name = "CBXA";
             this.CBXA.Size = new System.Drawing.Size(50, 37);
@@ -972,7 +972,7 @@
             this.CBXB.BackColor = System.Drawing.Color.White;
             this.CBXB.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGreen;
             this.CBXB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CBXB.Location = new System.Drawing.Point(607, 101);
+            this.CBXB.Location = new System.Drawing.Point(607, 102);
             this.CBXB.Margin = new System.Windows.Forms.Padding(10);
             this.CBXB.Name = "CBXB";
             this.CBXB.Size = new System.Drawing.Size(50, 37);
@@ -990,7 +990,7 @@
             this.CBXC.BackColor = System.Drawing.Color.White;
             this.CBXC.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightGreen;
             this.CBXC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CBXC.Location = new System.Drawing.Point(607, 158);
+            this.CBXC.Location = new System.Drawing.Point(607, 159);
             this.CBXC.Margin = new System.Windows.Forms.Padding(10);
             this.CBXC.Name = "CBXC";
             this.CBXC.Size = new System.Drawing.Size(50, 37);
@@ -1006,7 +1006,7 @@
             this.IndexEditA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.IndexEditA.FlatAppearance.BorderSize = 0;
             this.IndexEditA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IndexEditA.Location = new System.Drawing.Point(565, 50);
+            this.IndexEditA.Location = new System.Drawing.Point(565, 51);
             this.IndexEditA.Name = "IndexEditA";
             this.IndexEditA.Size = new System.Drawing.Size(29, 25);
             this.IndexEditA.TabIndex = 17;
@@ -1021,7 +1021,7 @@
             this.IndexEditB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.IndexEditB.FlatAppearance.BorderSize = 0;
             this.IndexEditB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IndexEditB.Location = new System.Drawing.Point(565, 107);
+            this.IndexEditB.Location = new System.Drawing.Point(565, 108);
             this.IndexEditB.Name = "IndexEditB";
             this.IndexEditB.Size = new System.Drawing.Size(29, 25);
             this.IndexEditB.TabIndex = 18;
@@ -1036,7 +1036,7 @@
             this.IndexEditC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.IndexEditC.FlatAppearance.BorderSize = 0;
             this.IndexEditC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IndexEditC.Location = new System.Drawing.Point(565, 164);
+            this.IndexEditC.Location = new System.Drawing.Point(565, 165);
             this.IndexEditC.Name = "IndexEditC";
             this.IndexEditC.Size = new System.Drawing.Size(29, 25);
             this.IndexEditC.TabIndex = 19;
