@@ -78,8 +78,9 @@ namespace GridMaker
         {
             TabOrder = new Control[]
             {
-                NumStepACountX, NumStepACountY, NumStepBCountX, NumStepBCountY, NumStepCCountX, NumStepCCountY,
-                NumStepAPitchX, NumStepAPitchY, NumStepBPitchX, NumStepBPitchY, NumStepCPitchX, NumStepCPitchY,
+                NumStepACountX, NumStepACountY, NumStepAPitchX, NumStepAPitchY,
+                NumStepBCountX, NumStepBCountY, NumStepBPitchX, NumStepBPitchY,
+                NumStepCCountX, NumStepCCountY, NumStepCPitchX, NumStepCPitchY,
             };
         }
 
@@ -87,8 +88,9 @@ namespace GridMaker
         {
             TabOrder = new Control[]
             {
-                NumStepACountY, NumStepACountX, NumStepBCountY, NumStepBCountX, NumStepCCountY, NumStepCCountX,
-                NumStepAPitchY, NumStepAPitchX, NumStepBPitchY, NumStepBPitchX, NumStepCPitchY, NumStepCPitchX,
+                NumStepACountY, NumStepACountX, NumStepAPitchY, NumStepAPitchX,
+                NumStepBCountY, NumStepBCountX, NumStepBPitchY, NumStepBPitchX,
+                NumStepCCountY, NumStepCCountX, NumStepCPitchY, NumStepCPitchX,
             };
         }
 
