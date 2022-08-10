@@ -8,13 +8,15 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>bradmartin333</Authors>
     <Description>Easy UI for nested coordinate grids</Description>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/bradmartin333/GridMaker</PackageProjectUrl>
     <PackageIcon>grid.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/bradmartin333/GridMaker</RepositoryUrl>
     <PackageTags>CNC; grid; automation</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.6.4</Version>
+    <Version>1.6.5</Version>
+    <PackageReleaseNotes>- Index selector now displays 1-indexed values instead of 0-indexed
+- Timer removed from functions</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
