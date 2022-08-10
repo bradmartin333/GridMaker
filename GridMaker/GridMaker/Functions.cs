@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -90,9 +88,6 @@ namespace GridMaker
 
         private static void DrawTiles(IndexSelector form)
         {
-            // For timing how long a process takes
-            Stopwatch sw = new Stopwatch();
-            sw.Restart();
 
             Bitmap bitmap = (Bitmap)form.pictureBox.BackgroundImage.Clone();
             using (Graphics g = Graphics.FromImage(bitmap))
@@ -127,7 +122,7 @@ namespace GridMaker
                     g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                     // Draw new text
                     
-                    string location = string.Format("{0}, {1}", tileUnderCursor.Location.X, tileUnderCursor.Location.Y);
+                    string location = string.Format("{0}, {1}", tileUnderCursor.Location.X + 1, tileUnderCursor.Location.Y + 1);
                     Font font = new Font("Tahoma", 25);
                     SizeF size = g.MeasureString(location, font);
                     InfoRectangle = new RectangleF(bitmap.Width - size.Width * 1.1f, size.Height * 1.1f, size.Width, size.Height);
@@ -135,10 +130,6 @@ namespace GridMaker
                 }
             }
             form.pictureBox.BackgroundImage = bitmap;
-
-            // Output the time for this method's duration
-            sw.Stop();
-            Debug.WriteLine(sw.Elapsed);
         }
 
         #endregion
