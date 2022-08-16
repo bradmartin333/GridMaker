@@ -118,8 +118,52 @@ namespace GridMaker
 
         #endregion
 
+        private void Composer_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.ComposerMaximized)
+            {
+                Location = Properties.Settings.Default.ComposerLocation;
+                WindowState = FormWindowState.Maximized;
+                Size = Properties.Settings.Default.ComposerSize;
+            }
+            else if (Properties.Settings.Default.ComposerMinimized)
+            {
+                Location = Properties.Settings.Default.ComposerLocation;
+                WindowState = FormWindowState.Minimized;
+                Size = Properties.Settings.Default.ComposerSize;
+            }
+            else
+            {
+                Location = Properties.Settings.Default.ComposerLocation;
+                Size = Properties.Settings.Default.ComposerSize;
+            }
+        }
+
         private void Composer_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.ComposerLocation = RestoreBounds.Location;
+                Properties.Settings.Default.ComposerSize = RestoreBounds.Size;
+                Properties.Settings.Default.ComposerMaximized = true;
+                Properties.Settings.Default.ComposerMinimized = false;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.ComposerLocation = Location;
+                Properties.Settings.Default.ComposerSize = Size;
+                Properties.Settings.Default.ComposerMaximized = false;
+                Properties.Settings.Default.ComposerMinimized = false;
+            }
+            else
+            {
+                Properties.Settings.Default.ComposerLocation = RestoreBounds.Location;
+                Properties.Settings.Default.ComposerSize = RestoreBounds.Size;
+                Properties.Settings.Default.ComposerMaximized = false;
+                Properties.Settings.Default.ComposerMinimized = true;
+            }
+            Properties.Settings.Default.Save();
+
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
@@ -345,6 +389,12 @@ namespace GridMaker
         {
             PreviewForm previewForm = new PreviewForm();
             if (!previewForm.IsDisposed) previewForm.ShowDialog();
+        }
+
+        private void ToolStripButtonResetLayout_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
+            Properties.Settings.Default.Save();
         }
     }
 }

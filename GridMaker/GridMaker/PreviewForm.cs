@@ -31,6 +31,54 @@ namespace GridMaker
                 PreviewChart.Series[0].Points.AddXY(nodes[i].Location.X, nodes[i].Location.Y);
             }
             RTB.Text = sb.ToString();
+            FormClosing += PreviewForm_FormClosing;
+        }
+
+        private void PreviewForm_Load(object sender, System.EventArgs e)
+        {
+            if (Properties.Settings.Default.PreviewMaximized)
+            {
+                Location = Properties.Settings.Default.PreviewLocation;
+                WindowState = FormWindowState.Maximized;
+                Size = Properties.Settings.Default.PreviewSize;
+            }
+            else if (Properties.Settings.Default.PreviewMinimized)
+            {
+                Location = Properties.Settings.Default.PreviewLocation;
+                WindowState = FormWindowState.Minimized;
+                Size = Properties.Settings.Default.PreviewSize;
+            }
+            else
+            {
+                Location = Properties.Settings.Default.PreviewLocation;
+                Size = Properties.Settings.Default.PreviewSize;
+            }
+        }
+
+        private void PreviewForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.PreviewLocation = RestoreBounds.Location;
+                Properties.Settings.Default.PreviewSize = RestoreBounds.Size;
+                Properties.Settings.Default.PreviewMaximized = true;
+                Properties.Settings.Default.PreviewMinimized = false;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.PreviewLocation = Location;
+                Properties.Settings.Default.PreviewSize = Size;
+                Properties.Settings.Default.PreviewMaximized = false;
+                Properties.Settings.Default.PreviewMinimized = false;
+            }
+            else
+            {
+                Properties.Settings.Default.PreviewLocation = RestoreBounds.Location;
+                Properties.Settings.Default.PreviewSize = RestoreBounds.Size;
+                Properties.Settings.Default.PreviewMaximized = false;
+                Properties.Settings.Default.PreviewMinimized = true;
+            }
+            Properties.Settings.Default.Save();
         }
     }
 }

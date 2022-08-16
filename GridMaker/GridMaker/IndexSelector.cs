@@ -22,6 +22,7 @@ namespace GridMaker
             pictureBox.MouseMove += PictureBox_MouseMove;
             pictureBox.MouseEnter += PictureBox_MouseEnter;
             pictureBox.MouseLeave += PictureBox_MouseLeave;
+            FormClosing += IndexSelector_FormClosing;
         }
 
         private void BtnConfirm_Click(object sender, EventArgs e)
@@ -32,11 +33,55 @@ namespace GridMaker
             return;
         }
 
-        private void DiscoForm_Load(object sender, EventArgs e)
+        private void IndexSelector_Load(object sender, EventArgs e)
         {
             pictureBox.BackgroundImage = new Bitmap(1000, 1000);
             pictureBox.Image = new Bitmap(1000, 1000);
             Functions.MakeGrid(this);
+
+            if (Properties.Settings.Default.SelectorMaximized)
+            {
+                Location = Properties.Settings.Default.SelectorLocation;
+                WindowState = FormWindowState.Maximized;
+                Size = Properties.Settings.Default.SelectorSize;
+            }
+            else if (Properties.Settings.Default.SelectorMinimized)
+            {
+                Location = Properties.Settings.Default.SelectorLocation;
+                WindowState = FormWindowState.Minimized;
+                Size = Properties.Settings.Default.SelectorSize;
+            }
+            else
+            {
+                Location = Properties.Settings.Default.SelectorLocation;
+                Size = Properties.Settings.Default.SelectorSize;
+            }
+        }
+
+        private void IndexSelector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                Properties.Settings.Default.SelectorLocation = RestoreBounds.Location;
+                Properties.Settings.Default.SelectorSize = RestoreBounds.Size;
+                Properties.Settings.Default.SelectorMaximized = true;
+                Properties.Settings.Default.SelectorMinimized = false;
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                Properties.Settings.Default.SelectorLocation = Location;
+                Properties.Settings.Default.SelectorSize = Size;
+                Properties.Settings.Default.SelectorMaximized = false;
+                Properties.Settings.Default.SelectorMinimized = false;
+            }
+            else
+            {
+                Properties.Settings.Default.SelectorLocation = RestoreBounds.Location;
+                Properties.Settings.Default.SelectorSize = RestoreBounds.Size;
+                Properties.Settings.Default.SelectorMaximized = false;
+                Properties.Settings.Default.SelectorMinimized = true;
+            }
+            Properties.Settings.Default.Save();
         }
 
         private void PictureBox_MouseLeave(object sender, EventArgs e)

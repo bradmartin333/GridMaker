@@ -104,6 +104,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 400);
             this.Name = "PreviewForm";
             this.Text = "Grid Preview";
+            this.Load += new System.EventHandler(this.PreviewForm_Load);
             this.tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PreviewChart)).EndInit();
             this.ResumeLayout(false);

@@ -86,7 +86,7 @@ namespace GridMaker
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "IndexSelector";
             this.Text = "Index Selector";
-            this.Load += new System.EventHandler(this.DiscoForm_Load);
+            this.Load += new System.EventHandler(this.IndexSelector_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.TLP.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -88,6 +88,7 @@
             this.IndexEditA = new System.Windows.Forms.Button();
             this.IndexEditB = new System.Windows.Forms.Button();
             this.IndexEditC = new System.Windows.Forms.Button();
+            this.ToolStripButtonResetLayout = new System.Windows.Forms.ToolStripButton();
             this.ToolStrip.SuspendLayout();
             this.TLP.SuspendLayout();
             this.FlowNumA.SuspendLayout();
@@ -123,6 +124,7 @@
             this.openToolStripButton,
             this.saveToolStripButton,
             this.ToolStripButtonViewIndices,
+            this.ToolStripButtonResetLayout,
             this.helpToolStripButton});
             this.ToolStrip.Location = new System.Drawing.Point(0, 0);
             this.ToolStrip.Name = "ToolStrip";
@@ -1043,6 +1045,16 @@
             this.IndexEditC.UseVisualStyleBackColor = false;
             this.IndexEditC.Click += new System.EventHandler(this.IndexEditC_Click);
             // 
+            // ToolStripButtonResetLayout
+            // 
+            this.ToolStripButtonResetLayout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonResetLayout.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonResetLayout.Image")));
+            this.ToolStripButtonResetLayout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonResetLayout.Name = "ToolStripButtonResetLayout";
+            this.ToolStripButtonResetLayout.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonResetLayout.Text = "Reset Layouts";
+            this.ToolStripButtonResetLayout.Click += new System.EventHandler(this.ToolStripButtonResetLayout_Click);
+            // 
             // Composer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1057,6 +1069,7 @@
             this.Name = "Composer";
             this.Tag = "RR";
             this.Text = "Grid Maker";
+            this.Load += new System.EventHandler(this.Composer_Load);
             this.ToolStrip.ResumeLayout(false);
             this.ToolStrip.PerformLayout();
             this.TLP.ResumeLayout(false);
@@ -1151,6 +1164,7 @@
         private System.Windows.Forms.Button IndexEditA;
         private System.Windows.Forms.Button IndexEditB;
         private System.Windows.Forms.Button IndexEditC;
+        private System.Windows.Forms.ToolStripButton ToolStripButtonResetLayout;
     }
 }
 
