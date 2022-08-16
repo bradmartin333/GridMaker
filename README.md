@@ -1,20 +1,20 @@
 # GridMaker ![Nuget](https://img.shields.io/nuget/v/GridMaker)
 Easy UI for nested coordinate grids
 
-### This README is valid for core concepts, but is somewhat out of date
+![a](https://user-images.githubusercontent.com/19335151/184906671-71f535f1-be14-4bac-bbec-4b6eb61de67a.PNG)
 
-![image](https://user-images.githubusercontent.com/19335151/172191032-eaa1b490-afe9-4483-baed-ba9ee4067ec0.png)
+- Depending on the Host UI configuration, grids can be organized by Row (Y) Column (X) (As seen above) or X Y. 
+- After clicking *Validate and Save*, the preview form can be opened via the icon that looks like 3 horizontal bars. This form shows the path to be taken throughout the grid as well as display relevant info for each point on the grid.
 
-Callbacks can be configured to trigger a software response by the host program. In most cases, a handled callback triggers an Auto Focus routine to run.
+![b](https://user-images.githubusercontent.com/19335151/184906910-209ee024-17a1-4b1b-b73e-7b0292938b85.PNG)
 
-![image](https://user-images.githubusercontent.com/19335151/172191303-63bee782-74cb-4ece-809d-7a57d3917335.png)
+- A *Callback* can be enabled for each of the 3 grid levels. This is a flag that can be handled by the Host UI. 
+- *Skipped Indices* can be manually typed in or selected via GUI by clicking the pencil icon next to the entry box.
 
-This demo converts the **A** grid to RR and RC coordinates, the **B** grid to R and C coordinates and the **C** grid to SR and SC coordinates.
+![c](https://user-images.githubusercontent.com/19335151/184907703-01d44134-5330-4c64-a157-3d4020e1307d.PNG)
 
-![image](https://user-images.githubusercontent.com/19335151/172191618-f41b284a-a4ef-40d7-821a-b4b044c3598a.png)
+- After again clicking *Validate and Save*, the change can be seen in the preview form.
 
-Each **A** grid is treated as its own grid and the points are laid out in a serpentine pattern.
+![d](https://user-images.githubusercontent.com/19335151/184907881-e86739f0-3e03-46f6-9d6b-0be44309913b.PNG)
 
-![image](https://user-images.githubusercontent.com/19335151/172191784-6ad4d53b-908a-4ccb-8ec4-988924865423.png)
-
-Here is a representation of the same grid, where Black = **Origin / A**, Red = **A**, Green = **B**, Blue = **C**. The coordinate system is designed for systems with their origin in the SW corner.
+- Grids can be saved and loaded as .XML using the tools in the toolbar.
