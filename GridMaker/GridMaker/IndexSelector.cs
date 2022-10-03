@@ -7,6 +7,15 @@ namespace GridMaker
 {
     public partial class IndexSelector : Form
     {
+        public enum DragType
+        {
+            Skip,
+            Include,
+            Unknown,
+            Null
+        }
+        private DragType CurrentDragType = DragType.Unknown;
+
         private Size _GridSize = new Size(50, 50);
         public Size GridSize { get => _GridSize; }
 
@@ -19,6 +28,7 @@ namespace GridMaker
             _GridSize = gridSize;
             _SkippedIndices = skippedIndices;
             pictureBox.MouseDown += PictureBox_MouseDown;
+            pictureBox.MouseUp += PictureBox_MouseUp;
             pictureBox.MouseMove += PictureBox_MouseMove;
             pictureBox.MouseEnter += PictureBox_MouseEnter;
             pictureBox.MouseLeave += PictureBox_MouseLeave;
@@ -97,23 +107,30 @@ namespace GridMaker
         private void PictureBox_MouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Default;
+            CurrentDragType = DragType.Null;
         }
 
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Cross;
+            CurrentDragType = DragType.Unknown;
         }
 
         private void PictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                Functions.ClickTile(e.Location, this, waitForExit: true);
+                Functions.ClickTile(e.Location, ref CurrentDragType, this, waitForExit: true);
             Functions.HighlightTile(e.Location, this);
         }
 
         private void PictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            Functions.ClickTile(e.Location, this);
+            Functions.ClickTile(e.Location, ref CurrentDragType, this);
+        }
+
+        private void PictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            CurrentDragType = DragType.Unknown;
         }
     }
 }

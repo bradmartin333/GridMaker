@@ -52,9 +52,10 @@ namespace GridMaker
         /// Change the color of the tile under the cursor
         /// </summary>
         /// <param name="click"></param>
+        /// <param name="dragType"></param>
         /// <param name="form"></param>
         /// <param name="waitForExit"></param>
-        public static void ClickTile(Point click, IndexSelector form, bool waitForExit = false)
+        public static void ClickTile(Point click, ref IndexSelector.DragType dragType, IndexSelector form, bool waitForExit = false)
         {
             Point zoomClick = ZoomMousePos(click, form);
             foreach (IndexTile tile in TileList.Where(x => x.Rectangle.Contains(zoomClick)))
@@ -63,10 +64,30 @@ namespace GridMaker
                 {
                     if (waitForExit && tile.Highlight)
                         return;
-                    tile.ChangeColor();
+                    switch (dragType)
+                    {
+                        case IndexSelector.DragType.Skip:
+                            tile.SetState(false);
+                            dragType = IndexSelector.DragType.Skip;
+                            break;
+                        case IndexSelector.DragType.Include:
+                            tile.SetState(true);
+                            dragType = IndexSelector.DragType.Include;
+                            break;
+                        case IndexSelector.DragType.Unknown:
+                            tile.ChangeColor();
+                            dragType = tile.Skipped ? IndexSelector.DragType.Skip : IndexSelector.DragType.Include;
+                            break;
+                        case IndexSelector.DragType.Null:
+                            dragType = IndexSelector.DragType.Null;
+                            break;
+                        default:
+                            break;
+                    }
+                    DrawTiles(form);
+                    return;
                 }
             }
-            DrawTiles(form);
         }
 
         public static void SetAllTiles(bool state, IndexSelector form)
