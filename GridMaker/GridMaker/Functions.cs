@@ -69,6 +69,13 @@ namespace GridMaker
             DrawTiles(form);
         }
 
+        public static void SetAllTiles(bool state, IndexSelector form)
+        {
+            foreach (IndexTile tile in TileList)
+                tile.SetState(state);
+            DrawTiles(form);
+        }
+
         #endregion
 
         #region Drawing
@@ -88,7 +95,6 @@ namespace GridMaker
 
         private static void DrawTiles(IndexSelector form)
         {
-
             Bitmap bitmap = (Bitmap)form.pictureBox.BackgroundImage.Clone();
             using (Graphics g = Graphics.FromImage(bitmap))
             {

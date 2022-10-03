@@ -25,6 +25,16 @@ namespace GridMaker
             FormClosing += IndexSelector_FormClosing;
         }
 
+        private void BtnSkipAll_Click(object sender, EventArgs e)
+        {
+            Functions.SetAllTiles(false, this);
+        }
+
+        private void BtnIncludeAll_Click(object sender, EventArgs e)
+        {
+            Functions.SetAllTiles(true, this);
+        }
+
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             _SkippedIndices = Functions.GetSkippedTileLocations();

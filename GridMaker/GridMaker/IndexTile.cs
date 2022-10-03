@@ -75,5 +75,16 @@ namespace GridMaker
             _Color = colorIdx < Colors.Length - 1 ? Colors[colorIdx + 1] : Colors[0];
             _NeedsUpdate = true;
         }
+
+        /// <summary>
+        /// Green if true, White if false.
+        /// Invalidates color cycling ability
+        /// </summary>
+        /// <param name="state"></param>
+        public void SetState(bool state)
+        {
+            _Color = state ? Colors[0] : Colors[1];
+            _NeedsUpdate = true;
+        }
     }
 }
