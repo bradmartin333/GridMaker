@@ -34,6 +34,7 @@
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ToolStripButtonViewIndices = new System.Windows.Forms.ToolStripButton();
+            this.ToolStripButtonResetLayout = new System.Windows.Forms.ToolStripButton();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TLP = new System.Windows.Forms.TableLayoutPanel();
             this.BtnDone = new System.Windows.Forms.Button();
@@ -80,7 +81,6 @@
             this.RTBB = new System.Windows.Forms.RichTextBox();
             this.RTBC = new System.Windows.Forms.RichTextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
-            this.BtnValidate = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.CBXA = new System.Windows.Forms.CheckBox();
             this.CBXB = new System.Windows.Forms.CheckBox();
@@ -88,7 +88,6 @@
             this.IndexEditA = new System.Windows.Forms.Button();
             this.IndexEditB = new System.Windows.Forms.Button();
             this.IndexEditC = new System.Windows.Forms.Button();
-            this.ToolStripButtonResetLayout = new System.Windows.Forms.ToolStripButton();
             this.ToolStrip.SuspendLayout();
             this.TLP.SuspendLayout();
             this.FlowNumA.SuspendLayout();
@@ -173,6 +172,16 @@
             this.ToolStripButtonViewIndices.Text = "View Indices";
             this.ToolStripButtonViewIndices.Click += new System.EventHandler(this.ToolStripButtonViewIndices_Click);
             // 
+            // ToolStripButtonResetLayout
+            // 
+            this.ToolStripButtonResetLayout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ToolStripButtonResetLayout.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonResetLayout.Image")));
+            this.ToolStripButtonResetLayout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ToolStripButtonResetLayout.Name = "ToolStripButtonResetLayout";
+            this.ToolStripButtonResetLayout.Size = new System.Drawing.Size(23, 22);
+            this.ToolStripButtonResetLayout.Text = "Reset Layouts";
+            this.ToolStripButtonResetLayout.Click += new System.EventHandler(this.ToolStripButtonResetLayout_Click);
+            // 
             // helpToolStripButton
             // 
             this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -217,7 +226,6 @@
             this.TLP.Controls.Add(this.RTBB, 7, 3);
             this.TLP.Controls.Add(this.RTBC, 7, 4);
             this.TLP.Controls.Add(this.TxtName, 1, 6);
-            this.TLP.Controls.Add(this.BtnValidate, 4, 6);
             this.TLP.Controls.Add(this.label16, 9, 1);
             this.TLP.Controls.Add(this.CBXA, 9, 2);
             this.TLP.Controls.Add(this.CBXB, 9, 3);
@@ -911,28 +919,11 @@
             // TxtName
             // 
             this.TxtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TLP.SetColumnSpan(this.TxtName, 2);
+            this.TLP.SetColumnSpan(this.TxtName, 5);
             this.TxtName.Location = new System.Drawing.Point(17, 221);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(204, 25);
+            this.TxtName.Size = new System.Drawing.Size(428, 25);
             this.TxtName.TabIndex = 10;
-            // 
-            // BtnValidate
-            // 
-            this.BtnValidate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnValidate.AutoSize = true;
-            this.BtnValidate.BackColor = System.Drawing.Color.Wheat;
-            this.TLP.SetColumnSpan(this.BtnValidate, 2);
-            this.BtnValidate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnValidate.Location = new System.Drawing.Point(241, 219);
-            this.BtnValidate.Name = "BtnValidate";
-            this.BtnValidate.Size = new System.Drawing.Size(204, 29);
-            this.BtnValidate.TabIndex = 11;
-            this.BtnValidate.Text = "Validate and Save";
-            this.BtnValidate.UseVisualStyleBackColor = false;
-            this.BtnValidate.Click += new System.EventHandler(this.BtnValidateAndSave_Click);
             // 
             // label16
             // 
@@ -1045,16 +1036,6 @@
             this.IndexEditC.UseVisualStyleBackColor = false;
             this.IndexEditC.Click += new System.EventHandler(this.IndexEditC_Click);
             // 
-            // ToolStripButtonResetLayout
-            // 
-            this.ToolStripButtonResetLayout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ToolStripButtonResetLayout.Image = ((System.Drawing.Image)(resources.GetObject("ToolStripButtonResetLayout.Image")));
-            this.ToolStripButtonResetLayout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ToolStripButtonResetLayout.Name = "ToolStripButtonResetLayout";
-            this.ToolStripButtonResetLayout.Size = new System.Drawing.Size(23, 22);
-            this.ToolStripButtonResetLayout.Text = "Reset Layouts";
-            this.ToolStripButtonResetLayout.Click += new System.EventHandler(this.ToolStripButtonResetLayout_Click);
-            // 
             // Composer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -1154,7 +1135,6 @@
         private System.Windows.Forms.RichTextBox RTBB;
         private System.Windows.Forms.RichTextBox RTBC;
         private System.Windows.Forms.TextBox TxtName;
-        private System.Windows.Forms.Button BtnValidate;
         private System.Windows.Forms.Button BtnDone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox CBXA;

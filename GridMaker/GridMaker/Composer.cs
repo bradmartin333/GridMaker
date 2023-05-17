@@ -229,11 +229,6 @@ namespace GridMaker
             }
         }
 
-        private void BtnValidateAndSave_Click(object sender, EventArgs e)
-        {
-            SaveGrid();
-        }
-
         private bool ValidateGrid()
         {
             Grid = new Grid()
@@ -306,7 +301,7 @@ namespace GridMaker
             return true;
         }
 
-        private void SaveGrid(string path = null)
+        private bool SaveGrid(string path = null)
         {
             if (ValidateGrid())
             {
@@ -316,7 +311,13 @@ namespace GridMaker
                     x.Serialize(stream, Grid);
                 }
                 RepopulateUI();
+                return true;
             } 
+            else
+            {
+                MessageBox.Show("Invalid Grid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         /// <summary>
@@ -381,14 +382,17 @@ namespace GridMaker
 
         private void BtnDone_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            DialogResult = SaveGrid() ? DialogResult.OK : DialogResult.Cancel;
             Hide();
         }
 
         private void ToolStripButtonViewIndices_Click(object sender, EventArgs e)
         {
-            PreviewForm previewForm = new PreviewForm();
-            if (!previewForm.IsDisposed) previewForm.ShowDialog();
+            if (SaveGrid())
+            {
+                PreviewForm previewForm = new PreviewForm();
+                if (!previewForm.IsDisposed) previewForm.ShowDialog();
+            }
         }
 
         private void ToolStripButtonResetLayout_Click(object sender, EventArgs e)
