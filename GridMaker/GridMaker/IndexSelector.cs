@@ -22,7 +22,9 @@ namespace GridMaker
         private List<Point> _SkippedIndices = new List<Point>();
         public List<Point> SkippedIndices { get => _SkippedIndices; }
 
-        public IndexSelector(Size gridSize, List<Point> skippedIndices)
+        private readonly bool UseRC = false;
+
+        public IndexSelector(Size gridSize, List<Point> skippedIndices, bool useRC)
         {
             InitializeComponent();
             _GridSize = gridSize;
@@ -33,6 +35,7 @@ namespace GridMaker
             pictureBox.MouseEnter += PictureBox_MouseEnter;
             pictureBox.MouseLeave += PictureBox_MouseLeave;
             FormClosing += IndexSelector_FormClosing;
+            UseRC = useRC;
         }
 
         private void BtnSkipAll_Click(object sender, EventArgs e)
@@ -108,12 +111,14 @@ namespace GridMaker
         {
             Cursor = Cursors.Default;
             CurrentDragType = DragType.Null;
+            Text = $"Index Selector";
         }
 
         private void PictureBox_MouseEnter(object sender, EventArgs e)
         {
             Cursor = Cursors.Cross;
             CurrentDragType = DragType.Unknown;
+            Text = $"Index Selector";
         }
 
         private void PictureBox_MouseMove(object sender, MouseEventArgs e)
@@ -121,6 +126,7 @@ namespace GridMaker
             if (e.Button == MouseButtons.Left)
                 Functions.ClickTile(e.Location, ref CurrentDragType, this, waitForExit: true);
             Functions.HighlightTile(e.Location, this);
+            Text = $"Index Selector     ({(UseRC ? Functions.HoverLocation.Y : Functions.HoverLocation.X)}, {(UseRC ? Functions.HoverLocation.X : Functions.HoverLocation.Y)})";
         }
 
         private void PictureBox_MouseDown(object sender, MouseEventArgs e)

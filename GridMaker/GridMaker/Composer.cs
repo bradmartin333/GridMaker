@@ -192,7 +192,7 @@ namespace GridMaker
 
         private void IndexEditA_Click(object sender, EventArgs e)
         {
-            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), Grid.StepA.SkippedIndices))
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepACountX.Value, (int)NumStepACountY.Value), Grid.StepA.SkippedIndices, UseRC))
             {
                 DialogResult result = indexSelector.ShowDialog();
                 if (result == DialogResult.OK)
@@ -205,7 +205,7 @@ namespace GridMaker
 
         private void IndexEditB_Click(object sender, EventArgs e)
         {
-            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), Grid.StepB.SkippedIndices))
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepBCountX.Value, (int)NumStepBCountY.Value), Grid.StepB.SkippedIndices, UseRC))
             {
                 DialogResult result = indexSelector.ShowDialog();
                 if (result == DialogResult.OK)
@@ -218,7 +218,7 @@ namespace GridMaker
 
         private void IndexEditC_Click(object sender, EventArgs e)
         {
-            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), Grid.StepC.SkippedIndices))
+            using (IndexSelector indexSelector = new IndexSelector(new Size((int)NumStepCCountX.Value, (int)NumStepCCountY.Value), Grid.StepC.SkippedIndices, UseRC))
             {
                 DialogResult result = indexSelector.ShowDialog();
                 if (result == DialogResult.OK)

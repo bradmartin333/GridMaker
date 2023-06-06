@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,8 +7,8 @@ namespace GridMaker
 {
     static class Functions
     {
-        private static List<IndexTile> TileList = new List<IndexTile>();
-        private static RectangleF InfoRectangle;
+        public static Point HoverLocation { get; set; } = Point.Empty;
+        private static readonly List<IndexTile> TileList = new List<IndexTile>();
 
         #region Tile Iteration
 
@@ -119,9 +118,6 @@ namespace GridMaker
             Bitmap bitmap = (Bitmap)form.pictureBox.BackgroundImage.Clone();
             using (Graphics g = Graphics.FromImage(bitmap))
             {
-                // Clear last text
-                g.FillRectangle(new SolidBrush(SystemColors.Control), InfoRectangle);
-
                 IndexTile tileUnderCursor = null;
                 foreach (IndexTile tile in TileList.Where(x => x.NeedsUpdate || x.Highlight))
                 {
@@ -142,19 +138,7 @@ namespace GridMaker
                 }
 
                 if (tileUnderCursor != null)
-                {
-                    // These options help with text drawing
-                    g.SmoothingMode = SmoothingMode.AntiAlias;
-                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                    // Draw new text
-                    
-                    string location = string.Format("{0}, {1}", tileUnderCursor.Location.X + 1, tileUnderCursor.Location.Y + 1);
-                    Font font = new Font("Tahoma", 25);
-                    SizeF size = g.MeasureString(location, font);
-                    InfoRectangle = new RectangleF(bitmap.Width - size.Width * 1.1f, size.Height * 1.1f, size.Width, size.Height);
-                    g.DrawString(location, font, Brushes.Black, InfoRectangle);
-                }
+                    HoverLocation = new Point(tileUnderCursor.Location.X + 1, tileUnderCursor.Location.Y + 1);
             }
             form.pictureBox.BackgroundImage = bitmap;
         }
