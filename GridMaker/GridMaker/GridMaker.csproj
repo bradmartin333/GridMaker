@@ -14,9 +14,9 @@
     <RepositoryUrl>https://github.com/bradmartin333/GridMaker</RepositoryUrl>
     <PackageTags>CNC; grid; automation</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.6.8</Version>
-    <PackageReleaseNotes>- Skip/Include all buttons
-- Better dragging controls for skipped indices</PackageReleaseNotes>
+    <Version>1.6.9</Version>
+    <PackageReleaseNotes>- Fix RC formatting of hover location in index selector
+- Move hover info to title of info selector</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
